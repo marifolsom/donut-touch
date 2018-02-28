@@ -100,6 +100,13 @@ A lot of my game will consist of event listeners, specifically ones involving mo
 ## jQuery Discoveries
 *Use this section to list some, but not all, of the jQuery methods and\or functionality discovered while working on this project.*
 
+Mouse Events:
+- `.click()`
+- `.hover()`
+- `.mousedown()`
+- `.mouseenter()`
+- `.mouseleave()`
+
 ## Change Log
 *Use this section to document what changes were made and the reasoning behind those changes.*  
 
