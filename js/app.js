@@ -1,3 +1,5 @@
+console.log('app.js linked!');
+
 /////////////// HOW TO PLAY ///////////////
 // Enter the game website
 // Enter username -- form input
