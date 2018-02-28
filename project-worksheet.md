@@ -102,7 +102,7 @@ The score keeping would be done by a function (`getScore`) that would add to a `
 ## jQuery Discoveries
 *Use this section to list some, but not all, of the jQuery methods and\or functionality discovered while working on this project.*
 
-Mouse Events:
+Relevant mouse events:
 - `.click()` - The click event is fired when a pointing device button (usually a mouse's primary button) is pressed and released on a single element.
 - `.mouseover()` - The mouseover event is fired when a pointing device is moved onto the element that has the listener attached or onto one of its children.
 - `.mouseenter()` - The mouseenter event is fired when a pointing device (usually a mouse) is moved over the element that has the listener attached.
