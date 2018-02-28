@@ -33,8 +33,11 @@ Include the full list of features that will be part of your MVP
 Include the full list of features that you are considering for POST MVP
 
 ## Wireframes
+Hangman wireframes: 
+![](./img/hangman-wireframes.jpg)
 
-Include images of your wireframes. 
+Cursor game wireframes: 
+![](./img/cursorgame-wireframes.jpg) 
 
 ## Game Components
 
