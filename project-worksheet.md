@@ -1,7 +1,7 @@
 # Project Overview
 
 ## Project Schedule
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
+*This schedule will be used to keep track of your progress throughout the week and align with our expectations.*  
 
 You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
@@ -81,6 +81,8 @@ On the `Level cleared!` or `GAME OVER` pop-up, there will also be an option to `
 
 A lot of my game will consist of event listeners, specifically ones involving mouse click, enter/leave, and hover. 
 
+The score keeping would be done by a function (`getScore`) that would add to a `userScore` variable as the user earns point and clears the various levels. If I end up incorporating time to the score, the user would also earn more points the shorter their time. I would need to set up some parameters as to what range of times equate to what number of points. 
+
 *Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted.* 
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
@@ -101,11 +103,10 @@ A lot of my game will consist of event listeners, specifically ones involving mo
 *Use this section to list some, but not all, of the jQuery methods and\or functionality discovered while working on this project.*
 
 Mouse Events:
-- `.click()`
-- `.hover()`
-- `.mousedown()`
-- `.mouseenter()`
-- `.mouseleave()`
+- `.click()` - The click event is fired when a pointing device button (usually a mouse's primary button) is pressed and released on a single element.
+- `.mouseover()` - The mouseover event is fired when a pointing device is moved onto the element that has the listener attached or onto one of its children.
+- `.mouseenter()` - The mouseenter event is fired when a pointing device (usually a mouse) is moved over the element that has the listener attached.
+- `.mouseleave()`- The mouseleave event is fired when the pointer of a pointing device (usually a mouse) is moved out of an element.
 
 ## Change Log
 *Use this section to document what changes were made and the reasoning behind those changes.*  
