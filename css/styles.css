@@ -1,0 +1,28 @@
+div, section {
+  border: 1px solid black;
+}
+
+h1, p, input {
+  text-align: center;
+}
+
+.input {
+  display: block;
+  margin: 0 auto;
+}
+
+.score-content {
+  display: inline;
+
+}
+
+.button {
+  display: block;
+  text-align: center;
+}
+
+
+
+.level-cleared {
+  /* display: none; */
+}
