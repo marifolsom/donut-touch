@@ -17,19 +17,29 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 ## Project Description
 *Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and/or functionality.*
-
+I was inspired by Operation (the board game!), where you have to accomplish tasks with a steady hand while you try not to touch certain things. But instead of a board game, I wanted to make an online game utilizing the user's cursor, as they try to make it from the start to end zone without hitting any of the obstacles. I was thinking of setting it up in a similar way to the dots game we did in class, but instead of trying to click on the dots the user would be avoiding them. 
 
 ## Priority Matrix
 *Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.*
-
+- At least one level with a start and end zone
+- Start with stationary obstacles, move up to moving obstacles
+- `Level cleared!` and `GAME OVER` pop-ups
+- Score display
+- Username input
 
 ## MVP
 *Include the full list of features that will be part of your MVP*
-
+- Username input
+- At least one level with a start and end zone
+- Start with stationary obstacles, move up to moving obstacles
+- Score display
+- `Level cleared!` and `GAME OVER` pop-ups
 
 ## POST MVP
 *Include the full list of features that you are considering for POST MVP*
-
+- More complicated maze levels 
+- Some items/tokens to collect for additional points  
+- Scores of other players--to compete
 
 ## Wireframes 
 ![](./img/cursorgame-wireframes.jpg) 
