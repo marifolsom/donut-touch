@@ -81,11 +81,13 @@ let touchObstacle = (evt) => {
   // change styling of game screen + obstacles
   gameScreen.setAttribute('style', 'background-color: #cc0000');
 
-  // pop up function
-  makePopUp();
-  // make pop up title 'GAME OVER'
-  let popUpTitle = document.querySelector('.pop-up > h2');
-  popUpTitle.textContent = 'GAME OVER';
+  // pop up function with a 1 second delay
+  setTimeout ( () => {
+    makePopUp();
+    // change pop up title 'GAME OVER'
+    let popUpText = document.querySelector('.pop-up > h2');
+    popUpText.textContent = 'GAME OVER';
+  }, 1000);
 }
 
 
@@ -113,11 +115,13 @@ let clearedLevel = (evt) => {
     'mouseenter', touchObstacle
   );
 
-  // pop up function
-  makePopUp();
-  // make pop up title 'Level cleared!'
-  let popUpTitle = document.querySelector('.pop-up > h2');
-  popUpTitle.textContent = 'LEVEL CLEARED!';
+  // pop up function with a 1 second delay
+  setTimeout ( () => {
+    makePopUp();
+    // change pop up title 'Level cleared!'
+    let popUpText = document.querySelector('.pop-up > h2');
+    popUpText.textContent = 'LEVEL CLEARED!';
+  }, 1000);
 }
 
 
