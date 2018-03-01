@@ -37,13 +37,14 @@ I was inspired by Operation (the board game!), where you have to accomplish task
 - Start with stationary obstacles, move up to moving obstacles
 - Score display
 - `Level cleared!` and `GAME OVER` pop-ups
+- Some items/tokens to collect for additional points
 
 ## POST MVP
 *Include the full list of features that you are considering for POST MVP*
 
 - More complicated maze levels
-- Some items/tokens to collect for additional points  
 - Scores of other players--to compete
+- A timer
 
 ## Wireframes
 ![](./img/cursorgame-wireframes.jpg)
@@ -97,7 +98,7 @@ The score keeping would be done by a function (`getScore`) that would add to a `
 | Capitalize | This will capitalize the first letter in a string |
 
 ## Additional Libraries
-*Use this section to list all supporting libraries and thier role in the project.*
+*Use this section to list all supporting libraries and their role in the project.*
 
 ## jQuery Discoveries
 *Use this section to list some, but not all, of the jQuery methods and\or functionality discovered while working on this project.*

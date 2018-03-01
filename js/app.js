@@ -24,17 +24,17 @@ var userTime = 0;
 var userScore = 0;
 
 
-// Make a function that when the user clicks on the start/end zones will start the timer, and turn the obstacle mouseenter event listeners on
+// Make a function that when the user clicks on the start/end zones will turn the obstacle mouseenter event listeners on
 var clickZone = (evt) => {
   var element = evt.target
 }
 
-// Make a function that when the user's cursor enters into the obstacle elements, the timer stops, and the objects and game screen turn red and triggers the 'GAME OVER' pop-up
+// Make a function that when the user's cursor enters into the obstacle elements, the objects and game screen turn red and triggers the 'GAME OVER' pop-up
 var touchObstacle = (evt) => {
   var element = evt.target
 }
 
-// Make a function that when the user clicks on the end zone, the timer is stopped, and the 'Level cleared!' pop up is triggered
+// Make a function that when the user clicks on the end zone, the 'Level cleared!' pop up is triggered
 var clearedLevel = (evt) => {
   var element = evt.target
 }
