@@ -114,81 +114,81 @@ nav {
   width: 60px;
   position: absolute;
   top: 135px;
-  left: 460px;
+  left: 415px;
 }
 
 .donut:nth-of-type(2) {
   width: 60px;
   position: absolute;
   top: 600px;
-  left: 860px;
+  left: 815px;
 }
+
 
 /* Obstacles */
 .obstacle {
   display: block;
   height: 22rem;
-  width: 5rem;
+  width: 4rem;
   background-color: #ffffff;
   position: absolute;
   top: 104px;
-  left: 150px;
+  left: 110px;
 }
 
 .obstacle:nth-of-type(2) { /* read about nth-og-type selector here: https://medium.com/@MateMarschalko/css-select-nth-element-with-class-a313d080e2bf */
   display: block;
   height: 30rem;
-  width: 5rem;
+  width: 4rem;
   background-color: #ffffff;
   position: absolute;
   top: 203px;
-  left: 350px;
+  left: 310px;
 }
 
 .obstacle:nth-of-type(3) {
   display: block;
   height: 30rem;
-  width: 5rem;
+  width: 4rem;
   background-color: #ffffff;
   position: absolute;
   top: 104px;;
-  left: 550px;
+  left: 510px;
 }
 
 .obstacle:nth-of-type(4) {
   display: block;
   height: 30rem;
-  width: 5rem;
+  width: 4rem;
   background-color: #ffffff;
   position: absolute;
   top: 203px;;
-  left: 750px;
+  left: 710px;
 }
 
 .obstacle:nth-of-type(5) {
   display: block;
   height: 30rem;
-  width: 5rem;
+  width: 4rem;
   background-color: #ffffff;
   position: absolute;
   top: 104px;;
-  left: 950px;
+  left: 910px;
 }
 
 .obstacle:nth-of-type(6) {
   display: block;
   height: 22rem;
-  width: 5rem;
+  width: 4rem;
   background-color: #ffffff;
   position: absolute;
   top: 331px;
-  left: 1150px;
+  left: 1110px;
 }
 
 
-
 /* Pop-ups */
-.level-cleared, .game-over {
+.pop-up {
   width: 40%;
   margin: 0 auto;
   text-align: center;
