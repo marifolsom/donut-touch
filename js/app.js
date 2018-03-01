@@ -78,26 +78,10 @@ let touchObstacle = (evt) => {
     let popUpText = document.querySelector('.pop-up > h2');
     popUpText.textContent = 'GAME OVER';
   }, 500);
-}
-
-
-// Make a function that when the user clicks on the start zone, the obstacle mouseenter event listeners are turned on
-let clickZone = (evt) => {
-  let element = evt.target;
-
-  console.log('clicked!');
-
-  for (let i = 0; i < obstacles.length; i++) {
-    // Add event listeners to each obstacle after starting level
-    obstacles[i].addEventListener (
-      // function that triggers the 'GAME OVER' pop-up
-      'mouseenter', touchObstacle
-    );
-  }
 
   for (let i = 0; i < donuts.length; i++) {
-    // Add event listeners to each donut after starting level
-    donuts[i].addEventListener (
+    // Remove event listeners from each donut after game over
+    donuts[i].removeEventListener (
       // function that adds to the user's score
       'mouseenter', getUserScore
     );
@@ -126,6 +110,36 @@ let clearedLevel = (evt) => {
     let popUpText = document.querySelector('.pop-up > h2');
     popUpText.textContent = 'LEVEL CLEARED!';
   }, 500);
+}
+
+
+// Make a function that when the user clicks on the start zone, the obstacle mouseenter event listeners are turned on
+let clickZone = (evt) => {
+  let element = evt.target;
+
+  console.log('clicked!');
+
+  // Add event listener to end zone
+  endZone.addEventListener (
+    // function that turns off the obstacle even listeners and triggers the 'Level cleared!' pop-up
+    'click', clearedLevel
+  );
+
+  for (let i = 0; i < obstacles.length; i++) {
+    // Add event listeners to each obstacle after starting level
+    obstacles[i].addEventListener (
+      // function that triggers the 'GAME OVER' pop-up
+      'mouseenter', touchObstacle
+    );
+  }
+
+  for (let i = 0; i < donuts.length; i++) {
+    // Add event listeners to each donut after starting level
+    donuts[i].addEventListener (
+      // function that adds to the user's score
+      'mouseenter', getUserScore
+    );
+  }
 }
 
 
@@ -159,11 +173,4 @@ let getUserScore = (evt) => {
 startZone.addEventListener (
   // function that turns on the obstacle event listeners
   'click', clickZone
-);
-
-
-// Add event listener to end zone
-endZone.addEventListener (
-  // function that turns off the obstacle even listeners and triggers the 'Level cleared!' pop-up
-  'click', clearedLevel
 );
