@@ -15,19 +15,28 @@
           </a>
           <h2 class="title">LEVEL ONE</h2>
 
-          <h3 class="score-content" id="timer">00:00:00</h3>
-          <h3 class="score-content" id="username"></h3>
-          <h3 class="score-content" id="user-score">0000</h3>
+          <div class="score-board">
+            <h3 class="score-content" id="timer">00:00:00</h3>
+            <h3 class="score-content" id="username"></h3>
+            <h3 class="score-content" id="user-score">0000</h3>
+          </div>
         </div>
       </header>
 
       <section class="game-screen">
-        <span class="start-end-zone" id="start-zone"></span>
-        <span class="start-end-zone" id="end-zone"></span>
+        <span class="start-end-zone" id="start-zone">START</span>
+        <span class="start-end-zone" id="end-zone">END</span>
       </section>
 
       <section class="level-cleared">
         <h2 class="title">Level cleared!</h1>
+        <a class="button" href="level-one.html">Play again</a>
+        <a class="button" href="level-two.html">Next level</a>
+        <a class="button" href="index.html">Return to menu</a>
+      </section>
+
+      <section class="game-over">
+        <h2 class="title">GAME OVER</h1>
         <a class="button" href="level-one.html">Play again</a>
         <a class="button" href="level-two.html">Next level</a>
         <a class="button" href="index.html">Return to menu</a>

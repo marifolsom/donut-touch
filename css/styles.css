@@ -1,7 +1,32 @@
-div, section {
-  border: 1px solid black;
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+
+/* General styling */
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', monospace;
+  background-color: #999999;
 }
 
+main {
+  min-height: 100vh; /* read about viewport units here: https://css-tricks.com/fun-viewport-units/ */
+}
+
+h1, h2, h3, h4, p, a {
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #e5e5e5;
+}
+
+
+/* Aligning elements */
 h1, p, input {
   text-align: center;
 }
@@ -11,9 +36,16 @@ h1, p, input {
   margin: 0 auto;
 }
 
-.score-content {
-  display: inline;
+.title {
+  display: inline-block;
+}
 
+.score-content {
+  display: inline-block;
+}
+
+.score-board {
+  text-align: right;
 }
 
 .button {
@@ -22,7 +54,43 @@ h1, p, input {
 }
 
 
+/* Game area */
+.game-screen {
+  background-color: #191919;
+  border-radius: 10px;
+  height: 500px;
+  width: 75%;
+  margin: 0 auto;
+}
 
-.level-cleared {
-  /* display: none; */
+.start-end-zone {
+  display: block;
+  height: 5rem;
+  width: 5rem;
+  background-color: #4c4c4c;
+}
+
+.start-end-zone:hover {
+  background-color: #666666;
+}
+
+#start-zone {
+  position: absolute;
+  top: 520px;
+  left: 185px;
+}
+
+#end-zone {
+  position: absolute;
+  top: 150px;
+  right: 185px;
+}
+
+
+/* Pop-ups */
+.level-cleared, .game-over {
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid #191919;
 }
