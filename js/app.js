@@ -16,24 +16,24 @@ console.log('app.js linked!');
 
 
 // Make a variable for the page body
-var body = document.body;
+let body = document.body;
 // Make a variable that stores the user's current score
-var score = 0;
+let score = 0;
 // Make variables for the zones, obstacles, and items
-var startZone = document.querySelector('#start-zone');
-var endZone = document.querySelector('#end-zone');
-var obstacle = document.querySelector('.obstacle');
+let startZone = document.querySelector('#start-zone');
+let endZone = document.querySelector('#end-zone');
+let obstacle = document.querySelector('.obstacle');
 // var items = document.querySelector('');
 
 
 // Make a function that creates a pop up
-var makePopUp = () => {
+let makePopUp = () => {
   // Create elements
-  var popUp = document.createElement('section');
-  var popUpText = document.createElement('h2');
-  var resetButton = document.createElement ('a');
-  var nextButton = document.createElement ('a');
-  var menuButton = document.createElement ('a');
+  let popUp = document.createElement('section');
+  let popUpText = document.createElement('h2');
+  let resetButton = document.createElement ('a');
+  let nextButton = document.createElement ('a');
+  let menuButton = document.createElement ('a');
 
   // Give elements text/class
   popUp.className = 'pop-up';
@@ -58,21 +58,23 @@ var makePopUp = () => {
   popUp.append(menuButton);
 
   // Style pop up
-  var popUpButtons = document.querySelectorAll(".button");
+  let popUpButtons = document.querySelectorAll(".button");
 
   popUp.style.backgroundColor = "#7f7f7f";
   popUp.style.margin = "0 auto";
-  popUp.style.padding = "5px 0px 20px 0px";
+  popUp.style.width = "500px"
+  popUp.style.padding = "25px 0px 40px 0px";
   popUp.style.position = "relative";
   popUp.style.top = "-400px";
+  popUp.style.border = "5px solid white";
   popUpText.style.textAlign = "center";
 }
 
 
 // Make a function that when the user's cursor enters into the obstacle elements, the objects and game screen turn red and triggers the 'GAME OVER' pop-up
-var touchObstacle = (evt) => {
-  var element = evt.target;
-  var gameScreen = document.querySelector('.game-screen');
+let touchObstacle = (evt) => {
+  let element = evt.target;
+  let gameScreen = document.querySelector('.game-screen');
 
   console.log('hovered!');
 
@@ -82,13 +84,13 @@ var touchObstacle = (evt) => {
   // pop up function
   makePopUp();
   // make pop up title 'GAME OVER'
-  var popUpTitle = document.querySelector('.pop-up > h2');
+  let popUpTitle = document.querySelector('.pop-up > h2');
   popUpTitle.textContent = 'GAME OVER';
 }
 
 // Make a function that when the user clicks on the start zone, the obstacle mouseenter event listeners are turned on
-var clickZone = (evt) => {
-  var element = evt.target;
+let clickZone = (evt) => {
+  let element = evt.target;
 
   console.log('clicked!');
 
@@ -99,8 +101,8 @@ var clickZone = (evt) => {
 }
 
 // Make a function that when the user clicks on the end zone, the obstacle event listeners are turned off, and the 'Level cleared!' pop up is triggered
-var clearedLevel = (evt) => {
-  var element = evt.target;
+let clearedLevel = (evt) => {
+  let element = evt.target;
 
   console.log('clicked!');
 
@@ -112,14 +114,14 @@ var clearedLevel = (evt) => {
   // pop up function
   makePopUp();
   // make pop up title 'Level cleared!'
-  var popUpTitle = document.querySelector('.pop-up > h2');
+  let popUpTitle = document.querySelector('.pop-up > h2');
   popUpTitle.textContent = 'LEVEL CLEARED!';
 }
 
 // Make a function that calculates the user's score
-var getUserScore = () => {
-  var currentScore = score.textContent;
-  var newScore = Number(currentScore) + 10;
+let getUserScore = () => {
+  let currentScore = score.textContent;
+  let newScore = Number(currentScore) + 10;
   score.textContent = newScore;
 }
 

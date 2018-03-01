@@ -70,13 +70,14 @@ nav {
   height: 5rem;
   width: 5rem;
   background-color: #4c4c4c;
+  text-align: center;
 }
 
 #start-zone {
   background-color: #059900;
   position: absolute;
-  top: 520px;
-  left: 185px;
+  top: 550px;
+  left: 100px;
 }
 
 #start-zone:hover {
@@ -87,7 +88,7 @@ nav {
   background-color: #0048e5;
   position: absolute;
   top: 150px;
-  right: 185px;
+  right: 100px;
 }
 
 #end-zone:hover {
