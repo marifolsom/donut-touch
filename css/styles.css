@@ -86,6 +86,17 @@ h1, p, input {
   right: 185px;
 }
 
+/* Obstacles */
+.obstacle {
+  display: block;
+  height: 10rem;
+  width: 5rem;
+  background-color: white;
+  position: absolute;
+  top: 200px;
+  left: 185px;
+}
+
 
 /* Pop-ups */
 .level-cleared, .game-over {

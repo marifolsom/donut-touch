@@ -15,53 +15,76 @@ console.log('app.js linked!');
 // Once the player has cleared all (five?) levels, they've beat the game! -- 'Congratulations' page
 
 
-
-// Make a variable that stores the user's total points
-var totalScore = 0;
-// Make a variable that stores the user's time
-var userTime = 0;
-// Make a variable that keeps track of the user's score
-var userScore = 0;
-
-
-// Make a function that when the user clicks on the start/end zones will turn the obstacle mouseenter event listeners on
-var clickZone = (evt) => {
-  var element = evt.target
-}
+// Make a variable for the page body
+var body = document.body;
+// Make a variable that stores the user's current score
+var score = 0;
+// Make variables for the zones, obstacles, and items
+var startZone = document.querySelector('#start-zone');
+var endZone = document.querySelector('#end-zone');
+var obstacle = document.querySelector('.obstacle');
+// var items = document.querySelector('');
 
 // Make a function that when the user's cursor enters into the obstacle elements, the objects and game screen turn red and triggers the 'GAME OVER' pop-up
 var touchObstacle = (evt) => {
-  var element = evt.target
+  var element = evt.target;
+  var gameScreen = document.querySelector('.game-screen');
+
+  console.log('hovered!');
+
+  // change styling of game screen + obstacles
+  gameScreen.setAttribute('style', 'background-color: #781515');
+
+  // "GAME OVER" pop up
 }
 
-// Make a function that when the user clicks on the end zone, the 'Level cleared!' pop up is triggered
+// Make a function that when the user clicks on the start zone, the obstacle mouseenter event listeners are turned on
+var clickZone = (evt) => {
+  var element = evt.target;
+
+  console.log('clicked!');
+
+  obstacle.addEventListener (
+    // function that triggers the 'GAME OVER' pop-up
+    'mouseenter', touchObstacle
+  );
+}
+
+// Make a function that when the user clicks on the end zone, the obstacle event listeners are turned off, and the 'Level cleared!' pop up is triggered
 var clearedLevel = (evt) => {
-  var element = evt.target
+  var element = evt.target;
+
+  console.log('clicked!');
+
+  obstacle.removeEventListener (
+    // function that triggers the 'GAME OVER' pop-up
+    'mouseenter', touchObstacle
+  );
+
+  // Create the 'Level cleared!' pop-up here? Or in HTML?
+
 }
 
 // Make a function that calculates the user's score
 var getUserScore = () => {
-
+  var currentScore = score.textContent;
+  var newScore = Number(currentScore) + 10;
+  score.textContent = newScore;
 }
 
 
-// Add event listeners -- start/end zones, all the obstacles, items
-var gameScreen = document.querySelector('.game-screen');
-var startZone = document.getElementbyId('start-zone');
-var endZone = document.getElementbyId('end-zone');
-var obstacles = ;
-
+// Add event listeners -- start/end zones, items
 startZone.addEventListener (
-  'click',
-  // function that starts the timer and turns on the obstacle event listeners
+  // function that turns on the obstacle event listeners
+  'click', clickZone
 );
 
 endZone.addEventListener (
-  'click',
-  // function that stops timer and triggers the 'Level cleared!' pop-up
+  // function that turns off the obstacle even listeners and triggers the 'Level cleared!' pop-up
+  'click', clearedLevel
 );
 
-obstacles.addEventListener (
-  'onmouseenter',
-  // function that stops the timer and triggers the 'GAME OVER' pop-up
-)
+// items.addEventListener (
+//   // function that adds to the user's score
+//   'onmouseenter', getUserScore
+// );
