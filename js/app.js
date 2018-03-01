@@ -68,7 +68,6 @@ let makePopUp = () => {
   popUp.style.top = "-400px";
   popUp.style.border = "5px solid white";
   popUpText.style.textAlign = "center";
-
 }
 
 
@@ -89,6 +88,7 @@ let touchObstacle = (evt) => {
   popUpTitle.textContent = 'GAME OVER';
 }
 
+
 // Make a function that when the user clicks on the start zone, the obstacle mouseenter event listeners are turned on
 let clickZone = (evt) => {
   let element = evt.target;
@@ -100,6 +100,7 @@ let clickZone = (evt) => {
     'mouseenter', touchObstacle
   );
 }
+
 
 // Make a function that when the user clicks on the end zone, the obstacle event listeners are turned off, and the 'Level cleared!' pop up is triggered
 let clearedLevel = (evt) => {
@@ -119,6 +120,13 @@ let clearedLevel = (evt) => {
   popUpTitle.textContent = 'LEVEL CLEARED!';
 }
 
+
+// Make a function that adds zeros to the front of the user's score
+let addZeros = (number) => { // After trying to concatenate strings, I found a solution on stack overflow that utilizes slice: https://stackoverflow.com/questions/30490968/adding-zeros-in-front-of-a-string
+  return ("0000" + number).slice(-4);
+}
+
+
 // Make a function that calculates the user's score
 let getUserScore = (evt) => {
   console.log('donut!');
@@ -127,7 +135,7 @@ let getUserScore = (evt) => {
   let donutPoints = element.getAttribute('points');
   let currentScore = score.textContent;
   let newScore = Number(currentScore) + Number(donutPoints);
-  score.textContent = newScore;
+  score.textContent = addZeros(newScore);
 
   // Grey out the donut once it's been collected so the user can know which ones they've already collected, and they can't collect it again
   donut.style.filter = "grayscale(80%)";
@@ -144,10 +152,12 @@ startZone.addEventListener (
   'click', clickZone
 );
 
+
 endZone.addEventListener (
   // function that turns off the obstacle even listeners and triggers the 'Level cleared!' pop-up
   'click', clearedLevel
 );
+
 
 donut.addEventListener (
   // function that adds to the user's score
