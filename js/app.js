@@ -28,46 +28,38 @@ let donuts = document.querySelectorAll('.donut');
 
 // Make a function that creates a pop up
 let makePopUp = () => {
-  // Create elements
-  let popUp = document.createElement('section');
-  let popUpText = document.createElement('h2');
-  let resetButton = document.createElement ('a');
-  let nextButton = document.createElement ('a');
-  let menuButton = document.createElement ('a');
+  // // If popUp doesn't exist create pop up elements
+  // if (!!document.body.contains(popUp)) {
+    // Create elements
+    let popUp = document.createElement('section');
+    let popUpText = document.createElement('h2');
+    let resetButton = document.createElement ('a');
+    let nextButton = document.createElement ('a');
+    let menuButton = document.createElement ('a');
 
-  // Give elements text/class
-  popUp.className = 'pop-up';
+    // Give elements a class
+    popUp.className = 'pop-up';
+    resetButton.className = 'button';
+    nextButton.className = 'button';
+    menuButton.className = 'button';
 
-  resetButton.textContent = 'Play again';
-  nextButton.textContent = 'Next level';
-  menuButton.textContent = 'Return to menu';
+    // Text content for each element
+    resetButton.textContent = 'Play again';
+    nextButton.textContent = 'Next level';
+    menuButton.textContent = 'Return to menu';
 
-  resetButton.href = 'level-one.html';
-  nextButton.href = 'level-two.html';
-  menuButton.href = 'index.html';
+    // Link for each element
+    resetButton.href = 'level-one.html';
+    nextButton.href = 'level-two.html';
+    menuButton.href = 'index.html';
 
-  resetButton.className = 'button';
-  nextButton.className = 'button';
-  menuButton.className = 'button';
-
-  // Append elements to body
-  body.append(popUp);
-  popUp.append(popUpText);
-  popUp.append(resetButton);
-  popUp.append(nextButton);
-  popUp.append(menuButton);
-
-  // Style pop up
-  let popUpButtons = document.querySelectorAll(".button");
-
-  popUp.style.backgroundColor = "#7f7f7f";
-  popUp.style.margin = "0 auto";
-  popUp.style.width = "500px"
-  popUp.style.padding = "25px 0px 40px 0px";
-  popUp.style.position = "relative";
-  popUp.style.top = "-400px";
-  popUp.style.border = "5px solid white";
-  popUpText.style.textAlign = "center";
+    // Append elements to body
+    body.append(popUp);
+    popUp.append(popUpText, resetButton, nextButton, menuButton);
+  // // Otherwise do nothing
+  // } else {
+  //   console.log('pop up already exists!');
+  // }
 }
 
 
@@ -85,7 +77,7 @@ let touchObstacle = (evt) => {
     // change pop up title 'GAME OVER'
     let popUpText = document.querySelector('.pop-up > h2');
     popUpText.textContent = 'GAME OVER';
-  }, 1000);
+  }, 500);
 }
 
 
@@ -133,7 +125,7 @@ let clearedLevel = (evt) => {
     // change pop up title 'Level cleared!'
     let popUpText = document.querySelector('.pop-up > h2');
     popUpText.textContent = 'LEVEL CLEARED!';
-  }, 1000);
+  }, 500);
 }
 
 
