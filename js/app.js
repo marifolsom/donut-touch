@@ -64,7 +64,7 @@ let makePopUp = () => {
 
 
 // Make a function that when the user's cursor enters into the obstacle elements, the objects and game screen turn red and triggers the 'GAME OVER' pop-up
-let touchObstacle = (evt) => {
+let setGameOver = (evt) => {
   let element = evt.target;
   let gameScreen = document.querySelector('.game-screen');
 
@@ -90,7 +90,7 @@ let touchObstacle = (evt) => {
 
 
 // Make a function that when the user clicks on the end zone, the obstacle event listeners are turned off, and the 'Level cleared!' pop up is triggered
-let clearedLevel = (evt) => {
+let setLevelCleared = (evt) => {
   let element = evt.target;
 
   console.log('clicked!');
@@ -99,7 +99,7 @@ let clearedLevel = (evt) => {
     // Remove event listeners from the obstacles once the level has been cleared
     obstacles[i].removeEventListener (
       // function that triggers the 'GAME OVER' pop-up
-      'mouseenter', touchObstacle
+      'mouseenter', setGameOver
     );
   }
 
@@ -114,7 +114,7 @@ let clearedLevel = (evt) => {
 
 
 // Make a function that when the user clicks on the start zone, the obstacle mouseenter event listeners are turned on
-let clickZone = (evt) => {
+let startGame = (evt) => {
   let element = evt.target;
 
   console.log('clicked!');
@@ -122,14 +122,14 @@ let clickZone = (evt) => {
   // Add event listener to end zone
   endZone.addEventListener (
     // function that turns off the obstacle even listeners and triggers the 'Level cleared!' pop-up
-    'click', clearedLevel
+    'click', setLevelCleared
   );
 
   for (let i = 0; i < obstacles.length; i++) {
     // Add event listeners to each obstacle after starting level
     obstacles[i].addEventListener (
       // function that triggers the 'GAME OVER' pop-up
-      'mouseenter', touchObstacle
+      'mouseenter', setGameOver
     );
   }
 
@@ -144,13 +144,13 @@ let clickZone = (evt) => {
 
 
 // Make a function that adds zeros to the front of the user's score
-let addZeros = (number) => { // After trying to concatenate strings, I found a solution on stack overflow that utilizes slice: https://stackoverflow.com/questions/30490968/adding-zeros-in-front-of-a-string
-  return ("0000" + number).slice(-4);
+let addZeros = (score) => { // After trying to concatenate strings and failing, I found a solution on stack overflow that utilizes slice: https://stackoverflow.com/questions/30490968/adding-zeros-in-front-of-a-string
+  return ("0000" + score).slice(-4);
 }
 
 
-// Make a function that calculates the user's score
-let getUserScore = (evt) => {
+// Make a function that calculates the user's score, removes the event listener from the donut, and turns donut grey
+let getDonutScore = (evt) => {
   console.log('donut!');
 
   let element = evt.target;
@@ -172,5 +172,5 @@ let getUserScore = (evt) => {
 // Add event listener to start zone
 startZone.addEventListener (
   // function that turns on the obstacle event listeners
-  'click', clickZone
+  'click', startGame
 );
