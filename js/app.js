@@ -28,8 +28,11 @@ let donuts = document.querySelectorAll('.donut');
 
 // Make a function that creates a pop up
 let makePopUp = () => {
-  // // If popUp doesn't exist create pop up elements
-  // if (!!document.body.contains(popUp)) {
+  // If pop up already exists, do nothing
+  if (document.getElementById('pop-up-div')) {
+    console.log('pop up already exists!');
+  // Otherwise make pop up!
+  } else {
     // Create elements
     let popUp = document.createElement('section');
     let popUpText = document.createElement('h2');
@@ -39,6 +42,7 @@ let makePopUp = () => {
 
     // Give elements a class
     popUp.className = 'pop-up';
+    popUp.id = 'pop-up-div';
     resetButton.className = 'button';
     nextButton.className = 'button';
     menuButton.className = 'button';
@@ -56,10 +60,7 @@ let makePopUp = () => {
     // Append elements to body
     body.append(popUp);
     popUp.append(popUpText, resetButton, nextButton, menuButton);
-  // // Otherwise do nothing
-  // } else {
-  //   console.log('pop up already exists!');
-  // }
+  }
 }
 
 
@@ -83,7 +84,7 @@ let setGameOver = (evt) => {
     // Remove event listeners from each donut after game over
     donuts[i].removeEventListener (
       // function that adds to the user's score
-      'mouseenter', getUserScore
+      'mouseenter', getDonutScore
     );
   }
 }
@@ -137,7 +138,7 @@ let startGame = (evt) => {
     // Add event listeners to each donut after starting level
     donuts[i].addEventListener (
       // function that adds to the user's score
-      'mouseenter', getUserScore
+      'mouseenter', getDonutScore
     );
   }
 }
@@ -164,7 +165,7 @@ let getDonutScore = (evt) => {
 
   // Remove event listener from each donut
   element.removeEventListener (
-    'mouseenter', getUserScore
+    'mouseenter', getDonutScore
   );
 }
 
@@ -174,3 +175,8 @@ startZone.addEventListener (
   // function that turns on the obstacle event listeners
   'click', startGame
 );
+
+
+// // Make a function that takes the inputted username and displays it in the nav
+// let userName = document.querySelector('.input').value;
+// console.log(userName);

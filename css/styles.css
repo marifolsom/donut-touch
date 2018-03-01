@@ -25,6 +25,14 @@ a:hover {
   color: #e5e5e5;
 }
 
+.button:hover::before { /* Read about ::before and ::after here: https://css-tricks.com/almanac/selectors/a/after-and-before/ */
+  content: '> ';
+}
+
+.button:hover::after {
+  content: ' <';
+}
+
 
 /* Index */
 h1, p, input {
@@ -126,7 +134,7 @@ nav {
 /* Obstacles */
 .obstacle {
   display: block;
-  background-color: #F6F6F6;
+  background-color: #ffffff;
   position: absolute;
   height: 22rem;
   width: 4rem;
@@ -178,9 +186,13 @@ nav {
   padding: 25px 0px 40px 0px;
   position: relative;
   top: -400px;
-  border: 5px solid white;
+  border: 5px solid #ffffff;
 }
 
 .pop-up > h2 {
   text-align: center;
+}
+
+.pop-up > .button {
+  margin: 10px;
 }
