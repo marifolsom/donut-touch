@@ -31,19 +31,30 @@ h1, p, input {
   text-align: center;
 }
 
+h1 {
+  margin: 100px 0 30px 0;
+}
+
 .input {
   display: block;
   margin: 0 auto;
+}
+
+.container1 {
+  vertical-align: middle;
+  line-height: 4rem;
 }
 
 
 /* Nav */
 nav {
   padding: 20px 20px;
+  background-color: #262626;
 }
 
 .title {
   display: inline-block;
+  margin-right: 50px;
 }
 
 .score-content {
@@ -97,23 +108,83 @@ nav {
   background-color: #0040cc;
 }
 
+
+/* Donuts */
 .donut {
   width: 60px;
-  position: relative;
-  top: 200px;
-  left: 500px;
+  position: absolute;
+  top: 135px;
+  left: 460px;
+}
+
+.donut:nth-of-type(2) {
+  width: 60px;
+  position: absolute;
+  top: 600px;
+  left: 860px;
 }
 
 /* Obstacles */
 .obstacle {
   display: block;
-  height: 10rem;
+  height: 22rem;
   width: 5rem;
-  background-color: white;
+  background-color: #ffffff;
   position: absolute;
-  top: 200px;
-  left: 185px;
+  top: 104px;
+  left: 150px;
 }
+
+.obstacle:nth-of-type(2) { /* read about nth-og-type selector here: https://medium.com/@MateMarschalko/css-select-nth-element-with-class-a313d080e2bf */
+  display: block;
+  height: 30rem;
+  width: 5rem;
+  background-color: #ffffff;
+  position: absolute;
+  top: 203px;
+  left: 350px;
+}
+
+.obstacle:nth-of-type(3) {
+  display: block;
+  height: 30rem;
+  width: 5rem;
+  background-color: #ffffff;
+  position: absolute;
+  top: 104px;;
+  left: 550px;
+}
+
+.obstacle:nth-of-type(4) {
+  display: block;
+  height: 30rem;
+  width: 5rem;
+  background-color: #ffffff;
+  position: absolute;
+  top: 203px;;
+  left: 750px;
+}
+
+.obstacle:nth-of-type(5) {
+  display: block;
+  height: 30rem;
+  width: 5rem;
+  background-color: #ffffff;
+  position: absolute;
+  top: 104px;;
+  left: 950px;
+}
+
+.obstacle:nth-of-type(6) {
+  display: block;
+  height: 22rem;
+  width: 5rem;
+  background-color: #ffffff;
+  position: absolute;
+  top: 331px;
+  left: 1150px;
+}
+
 
 
 /* Pop-ups */

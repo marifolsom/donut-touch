@@ -22,8 +22,8 @@ let score = document.querySelector('#user-score');
 // Make variables for the zones, obstacles, and items
 let startZone = document.querySelector('#start-zone');
 let endZone = document.querySelector('#end-zone');
-let obstacle = document.querySelector('.obstacle');
-let donut = document.querySelector('.donut');
+let obstacles = document.querySelectorAll('.obstacle');
+let donuts = document.querySelectorAll('.donut');
 
 
 // Make a function that creates a pop up
@@ -76,8 +76,6 @@ let touchObstacle = (evt) => {
   let element = evt.target;
   let gameScreen = document.querySelector('.game-screen');
 
-  console.log('hovered!');
-
   // change styling of game screen + obstacles
   gameScreen.setAttribute('style', 'background-color: #cc0000');
 
@@ -97,10 +95,21 @@ let clickZone = (evt) => {
 
   console.log('clicked!');
 
-  obstacle.addEventListener (
-    // function that triggers the 'GAME OVER' pop-up
-    'mouseenter', touchObstacle
-  );
+  for (let i = 0; i < obstacles.length; i++) {
+    // Add event listeners to each obstacle after starting level
+    obstacles[i].addEventListener (
+      // function that triggers the 'GAME OVER' pop-up
+      'mouseenter', touchObstacle
+    );
+  }
+
+  for (let i = 0; i < donuts.length; i++) {
+    // Add event listeners to each donut after starting level
+    donuts[i].addEventListener (
+      // function that adds to the user's score
+      'mouseenter', getUserScore
+    );
+  }
 }
 
 
@@ -110,10 +119,13 @@ let clearedLevel = (evt) => {
 
   console.log('clicked!');
 
-  obstacle.removeEventListener (
-    // function that triggers the 'GAME OVER' pop-up
-    'mouseenter', touchObstacle
-  );
+  for (let i = 0; i < obstacles.length; i++) {
+    // Remove event listeners from the obstacles once the level has been cleared
+    obstacles[i].removeEventListener (
+      // function that triggers the 'GAME OVER' pop-up
+      'mouseenter', touchObstacle
+    );
+  }
 
   // pop up function with a 1 second delay
   setTimeout ( () => {
@@ -142,28 +154,24 @@ let getUserScore = (evt) => {
   score.textContent = addZeros(newScore);
 
   // Grey out the donut once it's been collected so the user can know which ones they've already collected, and they can't collect it again
-  donut.style.filter = "grayscale(80%)";
+  element.style.filter = "grayscale(80%)";
 
-  donut.removeEventListener (
+  // Remove event listener from each donut
+  element.removeEventListener (
     'mouseenter', getUserScore
   );
 }
 
 
-// Add event listeners -- start/end zones, items
+// Add event listener to start zone
 startZone.addEventListener (
   // function that turns on the obstacle event listeners
   'click', clickZone
 );
 
 
+// Add event listener to end zone
 endZone.addEventListener (
   // function that turns off the obstacle even listeners and triggers the 'Level cleared!' pop-up
   'click', clearedLevel
-);
-
-
-donut.addEventListener (
-  // function that adds to the user's score
-  'mouseenter', getUserScore
 );
