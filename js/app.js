@@ -25,6 +25,50 @@ var endZone = document.querySelector('#end-zone');
 var obstacle = document.querySelector('.obstacle');
 // var items = document.querySelector('');
 
+
+// Make a function that creates a pop up
+var makePopUp = () => {
+  // Create elements
+  var popUp = document.createElement('section');
+  var popUpText = document.createElement('h2');
+  var resetButton = document.createElement ('a');
+  var nextButton = document.createElement ('a');
+  var menuButton = document.createElement ('a');
+
+  // Give elements text/class
+  popUp.className = 'pop-up';
+
+  resetButton.textContent = 'Play again';
+  nextButton.textContent = 'Next level';
+  menuButton.textContent = 'Return to menu';
+
+  resetButton.href = 'level-one.html';
+  nextButton.href = 'level-two.html';
+  menuButton.href = 'index.html';
+
+  resetButton.className = 'button';
+  nextButton.className = 'button';
+  menuButton.className = 'button';
+
+  // Append elements to body
+  body.append(popUp);
+  popUp.append(popUpText);
+  popUp.append(resetButton);
+  popUp.append(nextButton);
+  popUp.append(menuButton);
+
+  // Style pop up
+  var popUpButtons = document.querySelectorAll(".button");
+
+  popUp.style.backgroundColor = "#7f7f7f";
+  popUp.style.margin = "0 auto";
+  popUp.style.padding = "5px 0px 20px 0px";
+  popUp.style.position = "relative";
+  popUp.style.top = "-400px";
+  popUpText.style.textAlign = "center";
+}
+
+
 // Make a function that when the user's cursor enters into the obstacle elements, the objects and game screen turn red and triggers the 'GAME OVER' pop-up
 var touchObstacle = (evt) => {
   var element = evt.target;
@@ -33,9 +77,13 @@ var touchObstacle = (evt) => {
   console.log('hovered!');
 
   // change styling of game screen + obstacles
-  gameScreen.setAttribute('style', 'background-color: #781515');
+  gameScreen.setAttribute('style', 'background-color: #cc0000');
 
-  // "GAME OVER" pop up
+  // pop up function
+  makePopUp();
+  // make pop up title 'GAME OVER'
+  var popUpTitle = document.querySelector('.pop-up > h2');
+  popUpTitle.textContent = 'GAME OVER';
 }
 
 // Make a function that when the user clicks on the start zone, the obstacle mouseenter event listeners are turned on
@@ -61,8 +109,11 @@ var clearedLevel = (evt) => {
     'mouseenter', touchObstacle
   );
 
-  // Create the 'Level cleared!' pop-up here? Or in HTML?
-
+  // pop up function
+  makePopUp();
+  // make pop up title 'Level cleared!'
+  var popUpTitle = document.querySelector('.pop-up > h2');
+  popUpTitle.textContent = 'LEVEL CLEARED!';
 }
 
 // Make a function that calculates the user's score

@@ -1,5 +1,5 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 
 
 /* General styling */
@@ -7,8 +7,8 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Orbitron', monospace;
-  background-color: #999999;
+  font-family: 'Press Start 2P', monospace;
+  background-color: #191919;
 }
 
 main {
@@ -16,7 +16,7 @@ main {
 }
 
 h1, h2, h3, h4, p, a {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Press Start 2P', monospace;
   color: #ffffff;
   text-decoration: none;
 }
@@ -26,7 +26,7 @@ a:hover {
 }
 
 
-/* Aligning elements */
+/* Index */
 h1, p, input {
   text-align: center;
 }
@@ -36,16 +36,19 @@ h1, p, input {
   margin: 0 auto;
 }
 
+
+/* Nav */
+nav {
+  padding: 20px 20px;
+}
+
 .title {
   display: inline-block;
 }
 
 .score-content {
   display: inline-block;
-}
-
-.score-board {
-  text-align: right;
+  float: right;
 }
 
 .button {
@@ -57,9 +60,8 @@ h1, p, input {
 /* Game area */
 .game-screen {
   background-color: #191919;
-  border-radius: 10px;
-  height: 500px;
-  width: 75%;
+  height: 85vh;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -70,20 +72,26 @@ h1, p, input {
   background-color: #4c4c4c;
 }
 
-.start-end-zone:hover {
-  background-color: #666666;
-}
-
 #start-zone {
+  background-color: #059900;
   position: absolute;
   top: 520px;
   left: 185px;
 }
 
+#start-zone:hover {
+  background-color: #048800;
+}
+
 #end-zone {
+  background-color: #0048e5;
   position: absolute;
   top: 150px;
   right: 185px;
+}
+
+#end-zone:hover {
+  background-color: #0040cc;
 }
 
 /* Obstacles */
