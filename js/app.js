@@ -18,12 +18,12 @@ console.log('app.js linked!');
 // Make a variable for the page body
 let body = document.body;
 // Make a variable that stores the user's current score
-let score = 0;
+let score = document.querySelector('#user-score');
 // Make variables for the zones, obstacles, and items
 let startZone = document.querySelector('#start-zone');
 let endZone = document.querySelector('#end-zone');
 let obstacle = document.querySelector('.obstacle');
-// var items = document.querySelector('');
+let donut = document.querySelector('.donut');
 
 
 // Make a function that creates a pop up
@@ -68,6 +68,7 @@ let makePopUp = () => {
   popUp.style.top = "-400px";
   popUp.style.border = "5px solid white";
   popUpText.style.textAlign = "center";
+
 }
 
 
@@ -119,10 +120,21 @@ let clearedLevel = (evt) => {
 }
 
 // Make a function that calculates the user's score
-let getUserScore = () => {
+let getUserScore = (evt) => {
+  console.log('donut!');
+
+  let element = evt.target;
+  let donutPoints = element.getAttribute('points');
   let currentScore = score.textContent;
-  let newScore = Number(currentScore) + 10;
+  let newScore = Number(currentScore) + Number(donutPoints);
   score.textContent = newScore;
+
+  // Grey out the donut once it's been collected so the user can know which ones they've already collected, and they can't collect it again
+  donut.style.filter = "grayscale(80%)";
+
+  donut.removeEventListener (
+    'mouseenter', getUserScore
+  );
 }
 
 
@@ -137,7 +149,7 @@ endZone.addEventListener (
   'click', clearedLevel
 );
 
-// items.addEventListener (
-//   // function that adds to the user's score
-//   'onmouseenter', getUserScore
-// );
+donut.addEventListener (
+  // function that adds to the user's score
+  'mouseenter', getUserScore
+);

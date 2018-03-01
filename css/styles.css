@@ -68,9 +68,11 @@ nav {
 .start-end-zone {
   display: block;
   height: 5rem;
-  width: 5rem;
+  width: 6rem;
   background-color: #4c4c4c;
   text-align: center;
+  vertical-align: middle;
+  line-height: 5rem;
 }
 
 #start-zone {
@@ -93,6 +95,13 @@ nav {
 
 #end-zone:hover {
   background-color: #0040cc;
+}
+
+.donut {
+  width: 60px;
+  position: relative;
+  top: 200px;
+  left: 500px;
 }
 
 /* Obstacles */
