@@ -131,6 +131,7 @@ nav {
   position: relative;
   top: -400px;
   border: 5px solid #ffffff;
+  z-index: 7;
 }
 
 .pop-up > h2 {
@@ -208,10 +209,14 @@ img:hover {
 
 
 /* Obstacles */
-.level-one .obstacle {
+.obstacle  {
   display: block;
   background-color: #F8F8F8;
   position: absolute;
+  z-index: 5;
+}
+
+.level-one .obstacle {
   height: 22rem;
   width: 4rem;
   top: 104px;
@@ -287,9 +292,6 @@ img:hover {
 /* Obstacles */
 .level-two .obstacle {
   animation: down-up 3000ms infinite ease-in-out;
-  display: block;
-  background-color: #F8F8F8;
-  position: absolute;
   height: 15rem;
   width: 7rem;
   top: 104px;
@@ -348,9 +350,6 @@ img:hover {
 /* Obstacles */
 .level-three .obstacle {
   animation: up-down2 3000ms infinite ease-in-out;
-  display: block;
-  background-color: #F8F8F8;
-  position: absolute;
   height: 23rem;
   width: 4rem;
   top: 315px;

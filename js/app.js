@@ -16,15 +16,30 @@ console.log('app.js linked!');
 
 
 // Make a variable for the page body
-let body = document.body;
+let $body = $('body');
 // Make a variable that stores the user's current score
 let score = document.querySelector('#user-score');
+let $score = $('#user-score');
 // Make variables for the zones, obstacles, and items
 let gameScreen = document.querySelector('.game-screen');
 let startZone = document.querySelector('#start-zone');
 let endZone = document.querySelector('#end-zone');
 let obstacles = document.querySelectorAll('.obstacle');
 let donuts = document.querySelectorAll('.donut');
+// // Make variable for the user input
+// let userInput = document.querySelector('.input');
+// let playButton = document.querySelector('#play-button');
+// let username = '';
+//
+//
+// // Add event listner to the playButton to store the username
+// playButton.addEventListener('click', function (evt) {
+//   username = userInput.value;
+//   console.log(username);
+//
+//   let navUsername = document.querySelector('#username');
+//   navUsername.textContent = username;
+// });
 
 
 // Make a function that creates a pop up
@@ -34,35 +49,13 @@ let makePopUp = () => {
     console.log('pop up already exists!');
   // Otherwise make pop up!
   } else {
-    // Create elements
-    let popUp = document.createElement('section');
-    let popUpText = document.createElement('h2');
-    let resetButton = document.createElement('a');
-    let nextButton = document.createElement('a');
-    let menuButton = document.createElement('a');
-    let currentScore = document.createElement('p');
+    // Create and append pop up elements
+    let $popUp = $('<section class="pop-up" id="pop-up-div"><h2></h2> <a class="button" onClick="window.location.reload()">Play again</a> <a class="button next-level">Next level</a> <a class="button" href="index.html">Return to menu</a> <p>Score: ' + $score.text() + '</p> </section>');
+    $body.append($popUp);
 
-    // Give elements a class
-    popUp.className = 'pop-up';
-    popUp.id = 'pop-up-div';
-    resetButton.className = 'button';
-    nextButton.className = 'button';
-    menuButton.className = 'button';
-
-    // Add text content for each element
-    resetButton.textContent = 'Play again';
-    nextButton.textContent = 'Next level';
-    menuButton.textContent = 'Return to menu';
-    currentScore.textContent = 'Score: ' + score.textContent;
-
-    // Link for each element
-    resetButton.href = 'level-one.html';
-    nextButton.href = 'level-two.html';
-    menuButton.href = 'index.html';
-
-    // Append elements to body
-    body.append(popUp);
-    popUp.append(popUpText, resetButton, nextButton, menuButton, currentScore);
+    // Link to next level
+    let $nextLevel = $('.next-level');
+    $nextLevel.attr('href', 'level-two.html');
   }
 }
 
