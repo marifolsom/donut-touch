@@ -37,9 +37,10 @@ let makePopUp = () => {
     // Create elements
     let popUp = document.createElement('section');
     let popUpText = document.createElement('h2');
-    let resetButton = document.createElement ('a');
-    let nextButton = document.createElement ('a');
-    let menuButton = document.createElement ('a');
+    let resetButton = document.createElement('a');
+    let nextButton = document.createElement('a');
+    let menuButton = document.createElement('a');
+    let currentScore = document.createElement('p');
 
     // Give elements a class
     popUp.className = 'pop-up';
@@ -52,6 +53,7 @@ let makePopUp = () => {
     resetButton.textContent = 'Play again';
     nextButton.textContent = 'Next level';
     menuButton.textContent = 'Return to menu';
+    currentScore.textContent = 'Score: ' + score.textContent;
 
     // Link for each element
     resetButton.href = 'level-one.html';
@@ -60,7 +62,7 @@ let makePopUp = () => {
 
     // Append elements to body
     body.append(popUp);
-    popUp.append(popUpText, resetButton, nextButton, menuButton);
+    popUp.append(popUpText, resetButton, nextButton, menuButton, currentScore);
   }
 }
 
@@ -176,8 +178,3 @@ let getDonutScore = (evt) => {
 startZone.addEventListener (
   'click', startGame
 );
-
-
-// // Make a function that takes the inputted username and displays it in the nav
-// let userName = document.querySelector('.input').value;
-// console.log(userName);
