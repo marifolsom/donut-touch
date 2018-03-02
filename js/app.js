@@ -101,6 +101,11 @@ let setLevelCleared = (evt) => {
     );
   }
 
+  // Remove event listener from the game screen after level cleared
+  gameScreen.removeEventListener (
+    'mouseleave', setGameOver
+  );
+
   // pop up function with a 1 second delay
   setTimeout ( () => {
     makePopUp();

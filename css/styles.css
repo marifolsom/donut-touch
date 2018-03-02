@@ -52,7 +52,7 @@ h1 {
   margin: 0 auto;
 }
 
-.container1 {
+.container {
   vertical-align: middle;
   line-height: 4rem;
 }
@@ -226,7 +226,7 @@ img:hover {
   75% {
     transform: rotate(-5deg);
   }
-  
+
   100% {
     transform: rotate(0deg);
   }
