@@ -122,67 +122,6 @@ nav {
 }
 
 
-/* Donuts */
-.donut {
-  width: 60px;
-  position: absolute;
-  top: 135px;
-  left: 415px;
-}
-
-.donut:nth-of-type(2) {
-  top: 600px;
-  left: 815px;
-}
-
-
-/* Obstacles */
-.obstacle {
-  display: block;
-  background-color: #F8F8F8;
-  position: absolute;
-  height: 22rem;
-  width: 4rem;
-  top: 104px;
-  left: 110px;
-}
-
-.obstacle:nth-of-type(2) { /* read about nth-og-type selector here: https://medium.com/@MateMarschalko/css-select-nth-element-with-class-a313d080e2bf */
-  height: 30rem;
-  width: 4rem;
-  top: 203px;
-  left: 310px;
-}
-
-.obstacle:nth-of-type(3) {
-  height: 30rem;
-  width: 4rem;
-  top: 104px;;
-  left: 510px;
-}
-
-.obstacle:nth-of-type(4) {
-  height: 30rem;
-  width: 4rem;
-  top: 203px;;
-  left: 710px;
-}
-
-.obstacle:nth-of-type(5) {
-  height: 30rem;
-  width: 4rem;
-  top: 104px;;
-  left: 910px;
-}
-
-.obstacle:nth-of-type(6) {
-  height: 22rem;
-  width: 4rem;
-  top: 331px;
-  left: 1110px;
-}
-
-
 /* Pop-ups */
 .pop-up {
   background-color: #7f7f7f;
@@ -202,32 +141,259 @@ nav {
   margin: 10px;
 }
 
+
 /* Animations! */
 img:hover {
-  animation: jiggle;
-  animation-duration: 500ms;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
+  animation: jiggle 500ms 1 ease-in-out;
 }
 
 @keyframes jiggle {
-  0% {
-    transform: rotate(10deg);
-  }
-
-  25% {
-    transform: rotate(-10deg);
-  }
-
-  50% {
-    transform: rotate(20deg);
-  }
-
-  75% {
-    transform: rotate(-5deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
+  0% { transform: rotate(10deg); }
+  25% { transform: rotate(-10deg); }
+  50% { transform: rotate(20deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
 }
+
+@keyframes down-up {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(0, 339px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes up-down {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(0, -339px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes down-up2 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(0, 211px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes up-down2 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(0, -211px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes left-right {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-540px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes right-left {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(540px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+
+/*//////// LEVEL ONE ////////*/
+/* Donuts */
+.level-one .donut {
+  width: 60px;
+  position: absolute;
+  top: 135px;
+  left: 415px;
+}
+
+.level-one .donut:nth-of-type(2) {
+  top: 600px;
+  left: 815px;
+}
+
+
+/* Obstacles */
+.level-one .obstacle {
+  display: block;
+  background-color: #F8F8F8;
+  position: absolute;
+  height: 22rem;
+  width: 4rem;
+  top: 104px;
+  left: 110px;
+}
+
+.level-one .obstacle:nth-of-type(2) { /* read about nth-og-type selector here: https://medium.com/@MateMarschalko/css-select-nth-element-with-class-a313d080e2bf */
+  height: 30rem;
+  width: 4rem;
+  top: 203px;
+  left: 310px;
+}
+
+.level-one .obstacle:nth-of-type(3) {
+  height: 30rem;
+  width: 4rem;
+  top: 104px;;
+  left: 510px;
+}
+
+.level-one .obstacle:nth-of-type(4) {
+  height: 30rem;
+  width: 4rem;
+  top: 203px;;
+  left: 710px;
+}
+
+.level-one .obstacle:nth-of-type(5) {
+  height: 30rem;
+  width: 4rem;
+  top: 104px;;
+  left: 910px;
+}
+
+.level-one .obstacle:nth-of-type(6) {
+  height: 22rem;
+  width: 4rem;
+  top: 331px;
+  left: 1110px;
+}
+
+
+/*//////// LEVEL TWO ////////*/
+/* Zones */
+.level-two #start-zone {
+  top: 350px;
+  left: 100px;
+}
+
+.level-two #end-zone {
+  top: 350px;
+  right: 100px;
+}
+
+/* Donuts */
+.level-two .donut {
+  width: 60px;
+  position: absolute;
+  top: 600px;
+  left: 370px;
+}
+
+.level-two .donut:nth-of-type(2) {
+  top: 135px;
+  left: 840px;
+}
+
+.level-two .donut:nth-of-type(3) {
+  top: 600px;
+  left: 1185px;
+}
+
+/* Obstacles */
+.level-two .obstacle {
+  animation: down-up 3000ms infinite ease-in-out;
+  display: block;
+  background-color: #F8F8F8;
+  position: absolute;
+  height: 15rem;
+  width: 7rem;
+  top: 104px;
+  left: 230px;
+}
+
+.level-two .obstacle:nth-of-type(2) {
+  animation: up-down 3000ms infinite ease-in-out;
+  top: 443px;
+  left: 460px;
+}
+
+.level-two .obstacle:nth-of-type(3) {
+  animation: down-up 3000ms infinite ease-in-out;
+  top: 104px;
+  left: 700px;
+}
+
+.level-two .obstacle:nth-of-type(4) {
+  animation: up-down 3000ms infinite ease-in-out;
+  top: 443px;
+  left: 930px;
+}
+
+
+/*//////// LEVEL THREE ////////*/
+/* Zones */
+.level-three #start-zone {
+  top: 150px;
+  left: 100px;
+}
+
+.level-three #end-zone {
+  top: 550px;
+  right: 100px;
+}
+
+/* Donuts */
+.level-three .donut {
+  width: 60px;
+  position: absolute;
+  top: 600px;
+  left: 370px;
+}
+
+.level-three .donut:nth-of-type(2) {
+  top: 135px;
+  left: 840px;
+}
+
+.level-three .donut:nth-of-type(3) {
+  top: 370px;
+  left: 620px;
+}
+
+/* Obstacles */
+.level-three .obstacle {
+  animation: up-down2 3000ms infinite ease-in-out;
+  display: block;
+  background-color: #F8F8F8;
+  position: absolute;
+  height: 23rem;
+  width: 4rem;
+  top: 315px;
+  left: 250px;
+}
+
+.level-three .obstacle:nth-of-type(2) {
+  animation: right-left 4000ms infinite ease-in-out;
+  height: 18rem;
+  width: 7rem;
+  top: 395px;
+  left: 320px;
+}
+
+.level-three .obstacle:nth-of-type(3) {
+  animation: left-right 4000ms infinite ease-in-out;
+  height: 18rem;
+  width: 7rem;
+  top: 104px;
+  left: 852px;
+}
+
+.level-three .obstacle:nth-of-type(4) {
+  animation: down-up2 3000ms infinite ease-in-out;
+  height: 23rem;
+  width: 4rem;
+  top: 104px;
+  left: 970px;
+}
+
+
+/*//////// LEVEL FOUR ////////*/
+/* Zones */
+
+/* Donuts */
+
+/* Obstacles */
+
+
+
+/*//////// LEVEL FIVE ////////*/
+/* Zones */
+
+/* Donuts */
+
+/* Obstacles */
