@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Press Start 2P', monospace;
-  background-color: #191919;
+  background-color: #000000;
 }
 
 main {
@@ -22,6 +22,10 @@ h1, h2, h3, h4, p, a {
 }
 
 a:hover {
+  color: #e5e5e5;
+}
+
+a > h2:hover {
   color: #e5e5e5;
 }
 
@@ -57,7 +61,7 @@ h1 {
 /* Nav */
 nav {
   padding: 20px 20px;
-  background-color: #262626;
+  background-color: #202020;
 }
 
 .title {
@@ -92,28 +96,29 @@ nav {
   text-align: center;
   vertical-align: middle;
   line-height: 5rem;
+  cursor: pointer;
 }
 
 #start-zone {
-  background-color: #059900;
+  background-color: #1B930D;
   position: absolute;
   top: 550px;
   left: 100px;
 }
 
 #start-zone:hover {
-  background-color: #048800;
+  background-color: #18840b;
 }
 
 #end-zone {
-  background-color: #0048e5;
+  background-color: #0061C9;
   position: absolute;
   top: 150px;
   right: 100px;
 }
 
 #end-zone:hover {
-  background-color: #0040cc;
+  background-color: #0057b4;
 }
 
 
@@ -134,7 +139,7 @@ nav {
 /* Obstacles */
 .obstacle {
   display: block;
-  background-color: #ffffff;
+  background-color: #F8F8F8;
   position: absolute;
   height: 22rem;
   width: 4rem;
