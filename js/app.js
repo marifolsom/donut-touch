@@ -103,7 +103,7 @@ let getDonutScore = (evt) => {
   // Grey out the donut once it's been collected so the user can know which ones they've already collected, and they can't collect it again
   element.style.filter = "grayscale(80%)";
   // Play sound effect when donut is collected
-  let donutSound = new Audio('audio/donut.wav');
+  let donutSound = new Audio('audio/donut.wav'); // Looked up how to add audio here: https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement
   donutSound.play();
   // Remove event listener from each donut
   element.removeEventListener ('mouseenter', getDonutScore);
@@ -112,9 +112,22 @@ let getDonutScore = (evt) => {
 
 // Make a function that when the user's cursor enters into the obstacle elements, the objects and game screen turn red and triggers the 'GAME OVER' pop-up, and removes event listeners
 let setGameOver = () => {
+  let obstacleSound = new Audio('audio/obstacle.mp3');
+  obstacleSound.volume = 0.3; // Read about adjusting the volume of an audio clip here: https://www.w3schools.com/tags/av_prop_volume.asp
+  obstacleSound.play();
   // change styling of game screen
   let gameScreen = document.querySelector('.game-screen');
   gameScreen.style.backgroundColor = "#d00000";
+  // pop up function with a 1 second delay
+  setTimeout ( () => {
+    makePopUp();
+    // change pop up title 'GAME OVER'
+    let popUpText = document.querySelector('.pop-up > h2');
+    popUpText.textContent = 'GAME OVER';
+    // Play sound effect when gameover
+    let overSound = new Audio('audio/game-over.wav');
+    overSound.play();
+  }, 800);
   // Remove event listeners from each donut after game over
   let donuts = document.querySelectorAll('.donut');
   for (let i = 0; i < donuts.length; i++) {
@@ -127,32 +140,17 @@ let setGameOver = () => {
   }
   // Remove event listener from the game screen after level cleared
   gameScreen.removeEventListener ('mouseleave', setGameOver);
-  // pop up function with a 1 second delay
-  setTimeout ( () => {
-    makePopUp();
-    // change pop up title 'GAME OVER'
-    let popUpText = document.querySelector('.pop-up > h2');
-    popUpText.textContent = 'GAME OVER';
-    // Play sound effect when gameover
-    let overSound = new Audio('audio/game-over.wav');
-    overSound.play();
-  }, 500);
+  // Remove event listener from end zone
+  let endZone = document.querySelector('#end-zone');
+  endZone.removeEventListener ('click', setLevelCleared);
+  // Remove event listener from start zone
+  let startZone = document.querySelector('#start-zone');
+  startZone.removeEventListener ('click', setLevelCleared);
 }
 
 
 // Make a function that when the user clicks on the end zone, the obstacle event listeners are turned off, and the 'Level cleared!' pop up is triggered
 let setLevelCleared = () => {
-  // Remove event listeners from the obstacles once the level has been cleared
-  let obstacles = document.querySelectorAll('.obstacle');
-  for (let i = 0; i < obstacles.length; i++) {
-    obstacles[i].removeEventListener ('mouseenter', setGameOver);
-  }
-  // Remove event listener from the game screen after level cleared
-  let gameScreen = document.querySelector('.game-screen');
-  gameScreen.removeEventListener ('mouseleave', setGameOver);
-  // Remove event listener from end zone
-  let endZone = document.querySelector('#end-zone');
-  endZone.removeEventListener ('click', setLevelCleared);
   // if current level is less than 5, say 'Level cleared!'
   if (currentLevel < 5) {
     // Pop up function with a 1 second delay
@@ -178,6 +176,25 @@ let setLevelCleared = () => {
       clearedSound.play();
     }, 500);
   }
+  // Remove event listeners from each donut after game over
+  let donuts = document.querySelectorAll('.donut');
+  for (let i = 0; i < donuts.length; i++) {
+    donuts[i].removeEventListener ('mouseenter', getDonutScore);
+  }
+  // Remove event listeners from the obstacles once the level has been cleared
+  let obstacles = document.querySelectorAll('.obstacle');
+  for (let i = 0; i < obstacles.length; i++) {
+    obstacles[i].removeEventListener ('mouseenter', setGameOver);
+  }
+  // Remove event listener from the game screen after level cleared
+  let gameScreen = document.querySelector('.game-screen');
+  gameScreen.removeEventListener ('mouseleave', setGameOver);
+  // Remove event listener from end zone
+  let endZone = document.querySelector('#end-zone');
+  endZone.removeEventListener ('click', setLevelCleared);
+  // Remove event listener from start zone
+  let startZone = document.querySelector('#start-zone');
+  startZone.removeEventListener ('click', setLevelCleared);
 }
 
 
@@ -207,7 +224,7 @@ let makeLevelOne = () => {
   // Set current level variable to 1
   currentLevel = 1;
   // Create all the elements for level 1 + append
-  let $levelOnePage = $('<div class="level-one"><nav class="information-bar"><a href="index.html"><h2 class="title">CURSOR GAME</h2></a><a class="nav-level"><h2 class="title">LEVEL ONE</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"><span class="start-end-zone" id="start-zone">START</span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
+  let $levelOnePage = $('<div class="level-one"><nav class="information-bar"><a href="index.html"><h2 class="title">DONUT TOUCH</h2></a><a class="nav-level"><h2 class="title">LEVEL ONE</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"><span class="start-end-zone" id="start-zone">START</span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
   $body.html($levelOnePage);
   // Call displayUsername function
   displayUsername();
@@ -225,7 +242,7 @@ let makeLevelTwo = () => {
   // Set current level variable to 2
   currentLevel = 2;
   // Create all the elements for level 2 + append
-  let $levelTwoPage = $('<div class="level-two"><nav class="information-bar"><a href="index.html"><h2 class="title">CURSOR GAME</h2></a><a class="nav-level"><h2 class="title">LEVEL TWO</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"> <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
+  let $levelTwoPage = $('<div class="level-two"><nav class="information-bar"><a href="index.html"><h2 class="title">DONUT TOUCH</h2></a><a class="nav-level"><h2 class="title">LEVEL TWO</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"> <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
   $body.html($levelTwoPage);
   // Call displayUsername function
   displayUsername();
@@ -243,7 +260,7 @@ let makeLevelThree = () => {
   // Set current level variable to 3
   currentLevel = 3;
   // Create all the elements for level 3 + append
-  let $levelThreePage = $('<div class="level-three"><nav class="information-bar"><a href="index.html"><h2 class="title">CURSOR GAME</h2></a><a class="nav-level"><h2 class="title">LEVEL THREE</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"><span class="start-end-zone" id="start-zone">START</span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
+  let $levelThreePage = $('<div class="level-three"><nav class="information-bar"><a href="index.html"><h2 class="title">DONUT TOUCH</h2></a><a class="nav-level"><h2 class="title">LEVEL THREE</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"><span class="start-end-zone" id="start-zone">START</span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
   $body.html($levelThreePage);
   // Call displayUsername function
   displayUsername();
@@ -261,7 +278,7 @@ let makeLevelFour = () => {
   // Set current level variable to 4
   currentLevel = 4;
   // Create all the elements for level 4 + append
-  let $levelFourPage = $('<div class="level-four"><nav class="information-bar"><a href="index.html"><h2 class="title">CURSOR GAME</h2></a><a class="nav-level"><h2 class="title">LEVEL FOUR</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"><span class="start-end-zone" id="start-zone">START</span><svg width="1280px" height="590px"><image xlink:href="img/maze.svg" src="img/maze.svg" alt="maze obstacle" width="1280px" height="590px"></svg><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
+  let $levelFourPage = $('<div class="level-four"><nav class="information-bar"><a href="index.html"><h2 class="title">DONUT TOUCH</h2></a><a class="nav-level"><h2 class="title">LEVEL FOUR</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"><span class="start-end-zone" id="start-zone">START</span><svg width="1280px" height="590px"><image xlink:href="img/maze.svg" src="img/maze.svg" alt="maze obstacle" width="1280px" height="590px"></svg><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
   $body.html($levelFourPage);
   // Call displayUsername function
   displayUsername();
@@ -279,7 +296,7 @@ let makeLevelFive = () => {
   // Set current level variable to 5
   currentLevel = 5;
   // Create all the elements for level 4 + append
-  let $levelFivePage = $('<div class="level-five"><nav class="information-bar"><a href="index.html"><h2 class="title">CURSOR GAME</h2></a><a class="nav-level"><h2 class="title">LEVEL FIVE</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"><span class="start-end-zone" id="start-zone">START</span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
+  let $levelFivePage = $('<div class="level-five"><nav class="information-bar"><a href="index.html"><h2 class="title">DONUT TOUCH</h2></a><a class="nav-level"><h2 class="title">LEVEL FIVE</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"><span class="start-end-zone" id="start-zone">START</span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
   $body.html($levelFivePage);
   // Call displayUsername function
   displayUsername();
@@ -294,7 +311,7 @@ let makeLevelFive = () => {
 
 // Make a function that creates the elements for the levels page
 let makeLevelsPage = () => {
-  $levelsPage = $('<a href="index.html"><h1>CURSOR GAME</h1></a><div class="levels"><p>Select a level:</p><a class="button one">LEVEL ONE</a><a class="button two">LEVEL TWO</a><a class="button three">LEVEL THREE</a><a class="button four">LEVEL FOUR</a><a class="button five">LEVEL FIVE</a></div>')
+  $levelsPage = $('<a href="index.html"><h1>DONUT TOUCH</h1></a><div class="levels"><p>Select a level:</p><a class="button one">LEVEL ONE</a><a class="button two">LEVEL TWO</a><a class="button three">LEVEL THREE</a><a class="button four">LEVEL FOUR</a><a class="button five">LEVEL FIVE</a></div>')
   $main.html($levelsPage);
   // Add event listener to level one button
   let oneButton = document.querySelector('.one');
