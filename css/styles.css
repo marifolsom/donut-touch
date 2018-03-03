@@ -86,6 +86,10 @@ nav {
   float: right;
 }
 
+#username {
+  margin-right: 40px;
+}
+
 .button {
   display: block;
   text-align: center;
