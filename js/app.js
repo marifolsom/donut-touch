@@ -28,20 +28,23 @@ let username = '';
 let playButton = document.querySelector('.play-button');
 
 
+// Make a function that takes the user's inputted username and places it in the username variable so it can be used later
 let storeUsername = () => {
   let userInput = document.querySelector('.input');
   username = userInput.value;
 }
 
+
+// Add event listner to the playButton to store the username
+playButton.addEventListener('click', storeUsername);
+
+
+// Make a function that takes the value of username and displays it once the DOM element has been created
 let displayUsername = () => {
   let navUsername = document.querySelector('#username');
   navUsername.textContent = username;
   console.log(username);
 }
-
-
-// Add event listner to the playButton to store the username
-playButton.addEventListener('click', storeUsername);
 
 
 // Make a function that creates a pop up
@@ -236,7 +239,7 @@ let makeLevelFour = () => {
   // Set current level variable to 4
   currentLevel = 4;
   // Create all the elements for level 4 + append
-  let $levelFourPage = $('<div class="level-four"><nav class="information-bar"><a href="index.html"><h2 class="title">CURSOR GAME</h2></a><a class="nav-level"><h2 class="title">LEVEL FOUR</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"><span class="start-end-zone" id="start-zone">START</span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><span class="obstacle"></span><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
+  let $levelFourPage = $('<div class="level-four"><nav class="information-bar"><a href="index.html"><h2 class="title">CURSOR GAME</h2></a><a class="nav-level"><h2 class="title">LEVEL FOUR</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"><span class="start-end-zone" id="start-zone">START</span><span class="obstacle"></span><svg width="1280px" height="590px"><image class="obstacle" xlink:href="img/maze.svg" src="img/maze.svg" alt="maze obstacle" width="1280px" height="590px"></svg><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
   $body.html($levelFourPage);
   // Call displayUsername function
   displayUsername();

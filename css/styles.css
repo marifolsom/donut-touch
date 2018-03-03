@@ -160,7 +160,7 @@ nav {
 
 
 /* Animations! */
-img:hover {
+.donut:hover {
   animation: jiggle 500ms 1 ease-in-out;
 }
 
@@ -399,11 +399,45 @@ img:hover {
 
 /*//////// LEVEL FOUR ////////*/
 /* Zones */
+.level-four #start-zone {
+  top: 104px;
+  left: 32px;
+}
+
+.level-four #end-zone {
+  top: 602px;
+  right: 32px;
+}
 
 /* Donuts */
+.level-four .donut {
+  width: 60px;
+  position: absolute;
+  top: 150px;
+  left: 425px;
+}
+
+.level-four .donut:nth-of-type(2) {
+  top: 587px;
+  left: 800px;
+}
+
+.level-four .donut:nth-of-type(3) {
+  top: 477px;
+  left: 795px;
+}
+
+.level-four .donut:nth-of-type(4) {
+  top: 367px;
+  left: 420px;
+}
+
+.level-four .donut:nth-of-type(5) {
+  top: 257px;
+  left: 920px;
+}
 
 /* Obstacles */
-
 
 
 /*//////// LEVEL FIVE ////////*/
