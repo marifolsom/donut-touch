@@ -102,28 +102,41 @@ let getDonutScore = (evt) => {
   score.textContent = addZeros(newScore);
   // Grey out the donut once it's been collected so the user can know which ones they've already collected, and they can't collect it again
   element.style.filter = "grayscale(80%)";
+  // Play sound effect when donut is collected
+  let donutSound = new Audio('audio/donut.wav');
+  donutSound.play();
   // Remove event listener from each donut
   element.removeEventListener ('mouseenter', getDonutScore);
 }
 
 
-// Make a function that when the user's cursor enters into the obstacle elements, the objects and game screen turn red and triggers the 'GAME OVER' pop-up
+// Make a function that when the user's cursor enters into the obstacle elements, the objects and game screen turn red and triggers the 'GAME OVER' pop-up, and removes event listeners
 let setGameOver = () => {
   // change styling of game screen
   let gameScreen = document.querySelector('.game-screen');
   gameScreen.style.backgroundColor = "#d00000";
+  // Remove event listeners from each donut after game over
+  let donuts = document.querySelectorAll('.donut');
+  for (let i = 0; i < donuts.length; i++) {
+    donuts[i].removeEventListener ('mouseenter', getDonutScore);
+  }
+  // Remove event listeners from the obstacles once the level has been cleared
+  let obstacles = document.querySelectorAll('.obstacle');
+  for (let i = 0; i < obstacles.length; i++) {
+    obstacles[i].removeEventListener ('mouseenter', setGameOver);
+  }
+  // Remove event listener from the game screen after level cleared
+  gameScreen.removeEventListener ('mouseleave', setGameOver);
   // pop up function with a 1 second delay
   setTimeout ( () => {
     makePopUp();
     // change pop up title 'GAME OVER'
     let popUpText = document.querySelector('.pop-up > h2');
     popUpText.textContent = 'GAME OVER';
+    // Play sound effect when gameover
+    let overSound = new Audio('audio/game-over.wav');
+    overSound.play();
   }, 500);
-  // Remove event listeners from each donut after game over
-  let donuts = document.querySelectorAll('.donut');
-  for (let i = 0; i < donuts.length; i++) {
-    donuts[i].removeEventListener ('mouseenter', getDonutScore);
-  }
 }
 
 
@@ -137,23 +150,32 @@ let setLevelCleared = () => {
   // Remove event listener from the game screen after level cleared
   let gameScreen = document.querySelector('.game-screen');
   gameScreen.removeEventListener ('mouseleave', setGameOver);
+  // Remove event listener from end zone
+  let endZone = document.querySelector('#end-zone');
+  endZone.removeEventListener ('click', setLevelCleared);
   // if current level is less than 5, say 'Level cleared!'
   if (currentLevel < 5) {
-    // pop up function with a 1 second delay
+    // Pop up function with a 1 second delay
     setTimeout ( () => {
       makePopUp();
-      // change pop up title 'Level cleared!'
+      // Change pop up title 'Level cleared!'
       let popUpText = document.querySelector('.pop-up > h2');
       popUpText.textContent = 'LEVEL CLEARED!';
+      // Play sound effect when level cleared
+      let clearedSound = new Audio('audio/level-cleared.wav');
+      clearedSound.play();
     }, 500);
   // Otherwise, 'Game cleared!'
   } else {
-    // pop up function with a 1 second delay
+    // Pop up function with a 1 second delay
     setTimeout ( () => {
       makePopUp();
-      // change pop up title 'Level cleared!'
+      // Change pop up title 'Game cleared!'
       let popUpText = document.querySelector('.pop-up > h2');
       popUpText.textContent = 'GAME CLEARED!';
+      // Play sound effect when level cleared
+      let clearedSound = new Audio('audio/level-cleared.wav');
+      clearedSound.play();
     }, 500);
   }
 }
@@ -239,7 +261,7 @@ let makeLevelFour = () => {
   // Set current level variable to 4
   currentLevel = 4;
   // Create all the elements for level 4 + append
-  let $levelFourPage = $('<div class="level-four"><nav class="information-bar"><a href="index.html"><h2 class="title">CURSOR GAME</h2></a><a class="nav-level"><h2 class="title">LEVEL FOUR</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"><span class="start-end-zone" id="start-zone">START</span><span class="obstacle"></span><svg width="1280px" height="590px"><image class="obstacle" xlink:href="img/maze.svg" src="img/maze.svg" alt="maze obstacle" width="1280px" height="590px"></svg><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
+  let $levelFourPage = $('<div class="level-four"><nav class="information-bar"><a href="index.html"><h2 class="title">CURSOR GAME</h2></a><a class="nav-level"><h2 class="title">LEVEL FOUR</h2></a><h2 class="score-content" id="user-score">0000</h2><h2 class="score-content" id="username"></h2></nav><section class="game-screen"><span class="start-end-zone" id="start-zone">START</span><svg width="1280px" height="590px"><image xlink:href="img/maze.svg" src="img/maze.svg" alt="maze obstacle" width="1280px" height="590px"></svg><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><img class="donut" src="img/donut.png" alt="donut icon" points="10"><span class="start-end-zone" id="end-zone">END</span></section></div>');
   $body.html($levelFourPage);
   // Call displayUsername function
   displayUsername();
