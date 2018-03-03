@@ -69,7 +69,7 @@ let makePopUp = () => {
         next.addEventListener ('click', makeLevelFive);
         break;
       case 5:
-        current.addEventListener ('click', makeLevelFour);
+        current.addEventListener ('click', makeLevelFive);
         next.addEventListener ('click', makeLevelsPage);
         break;
     }
@@ -194,13 +194,21 @@ let makeLevelThree = () => {
 
 // Make a function that creates all the elements for level four
 let makeLevelFour = () => {
-
+  let $levelFourPage = $('');
+  currentLevel = 4;
+  // Add event listener to start zone
+  let startZone = document.querySelector('#start-zone');
+  startZone.addEventListener ('click', startGame);
 }
 
 
 // Make a function that creates all the elements for level five
 let makeLevelFive = () => {
-
+  let $levelFivePage = $('');
+  currentLevel = 5;
+  // Add event listener to start zone
+  let startZone = document.querySelector('#start-zone');
+  startZone.addEventListener ('click', startGame);
 }
 
 

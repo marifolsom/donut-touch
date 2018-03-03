@@ -57,6 +57,18 @@ h1 {
   line-height: 4rem;
 }
 
+.instructions {
+  width: 35%;
+  margin: 0 auto;
+  padding: 0 0 40px 0;
+  line-height: 2rem;
+}
+
+.play-button {
+  font-size: 25px;
+  margin: 20px 5px 0 20px;
+}
+
 
 /* Nav */
 nav {
