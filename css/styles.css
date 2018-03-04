@@ -217,6 +217,18 @@ nav {
   100% { transform: translate(0, 0); }
 }
 
+@keyframes rotate-left {
+  0% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(270deg); }
+}
+
+@keyframes rotate-right {
+  0% { transform: rotate(-90deg); }
+  50% { transform: rotate(-180deg); }
+  100% { transform: rotate(-270deg); }
+}
+
 
 /*//////// LEVEL ONE ////////*/
 /* Donuts */
@@ -382,8 +394,6 @@ nav {
   left: 920px;
 }
 
-/* Obstacles */
-
 
 /*//////// LEVEL FOUR ////////*/
 /* Zones */
@@ -539,3 +549,71 @@ nav {
   left: 990px;
   animation-delay: 1.25s;
 }
+
+/*//////// LEVEL SIX (LEVEL THREE BACKUP) ////////*/
+/* Zones */
+/* #start-zone {
+  top: 550px;
+  left: 100px;
+}
+
+#end-zone {
+  top: 150px;
+  right: 100px;
+} */
+
+/* Donuts */
+/* .level-three .donut {
+  width: 60px;
+  position: absolute;
+  top: 180px;
+  left: 100px;
+}
+
+.level-three .donut:nth-of-type(2) {
+  top: 387px;
+  left: 500px;
+}
+
+.level-three .donut:nth-of-type(3) {
+  top: 250px;
+  left: 850px;
+}
+
+.level-three .donut:nth-of-type(4) {
+  top: 600px;
+  left: 620px;
+}
+
+.level-three .donut:nth-of-type(5) {
+  top: 567px;
+  left: 1120px;
+} */
+
+/* Obstacles */
+/* .level-three .obstacle {
+  animation: rotate-left 800ms infinite;
+  height: 24rem;
+  width: 3rem;
+  top: 115px;
+  left: 200px;
+}
+
+.level-three .obstacle:nth-of-type(2) {
+  animation: rotate-right 2000ms infinite;
+  height: 20rem;
+  top: 350px;
+  left: 540px;
+}
+
+.level-three .obstacle:nth-of-type(3) {
+  top: 280px;
+  left: 1050px;
+}
+
+.level-three .obstacle:nth-of-type(4) {
+  animation: rotate-right 2000ms infinite;
+  height: 20rem;
+  top: 100px;
+  left: 760px;
+} */

@@ -128,7 +128,7 @@ let getDonutScore = (evt) => {
 // Make a function that turns the game screen turn red, triggers the 'GAME OVER' pop-up, and removes event listeners from donuts, obstacles, game screen, end zone, and start zone
 let setGameOver = () => {
   let obstacleSound = new Audio('audio/obstacle.mp3');
-  obstacleSound.volume = 0.3; // Read about adjusting the volume of an audio clip here: https://www.w3schools.com/tags/av_prop_volume.asp
+  obstacleSound.volume = 0.2; // Read about adjusting the volume of an audio clip here: https://www.w3schools.com/tags/av_prop_volume.asp
   obstacleSound.play();
   // Turn game screen background red
   let gameScreen = document.querySelector('.game-screen');
@@ -171,6 +171,7 @@ let setLevelCleared = () => {
       popUpText.textContent = 'GAME CLEARED!';
       // Play sound effect when level cleared
       let gameSound = new Audio('audio/game-cleared.mp3');
+      gameSound.volume = 0.2;
       gameSound.play();
     }, 500);
   }
@@ -198,7 +199,6 @@ let startGame = () => {
   }
   // If pop up exists, turn off event listeners to prevent users from adding to score after game over
   if (document.getElementById('pop-up-div')) {
-    console.log('pop up!');
     removeEventListers();
   }
 }
@@ -256,6 +256,25 @@ let makeLevelThree = () => {
   // let navLevel = document.querySelector('.nav-level');
   // navLevel.addEventListener ('click', makeLevelsPage);
 }
+
+
+// // Level 3 backup in case svg doesn't work out
+// // Make a function that creates all the elements for level three
+// let makeLevelThree = () => {
+//   // Set current level variable to 3
+//   currentLevel = 3;
+//   // Create all the elements for level 3 + append
+//   let $levelThreePage = $('<div class="level-three"> <nav class="information-bar"> <a href="index.html"> <h2 class="title">DONUT TOUCH</h2> </a> <a href="levels.html"> <h2 class="title">LEVEL THREE</h2> </a> <h2 class="score-content" id="user-score">0000</h2> <h2 class="score-content" id="username"></h2> </nav> <section class="game-screen"> <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <span class="start-end-zone" id="end-zone">END</span> </section> </div>');
+//   $body.html($levelThreePage);
+//   // Display the username in the nav bar
+//   displayUsername();
+//   // Add event listener to start zone
+//   let startZone = document.querySelector('#start-zone');
+//   startZone.addEventListener ('click', startGame);
+//   // // Add event listener to nav bar level name
+//   // let navLevel = document.querySelector('.nav-level');
+//   // navLevel.addEventListener ('click', makeLevelsPage);
+// }
 
 
 // Make a function that creates all the elements for level four
