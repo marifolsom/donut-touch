@@ -58,7 +58,7 @@ h1 {
 }
 
 .instructions {
-  width: 35%;
+  width: 45%;
   margin: 0 auto;
   padding: 0 0 30px 0;
   line-height: 2rem;
@@ -205,6 +205,14 @@ nav {
 @keyframes right-left {
   0% { transform: translate(0, 0); }
   50% { transform: translate(540px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes fall-down {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(0, 483px); }
+  50% { transform: translate(0, 483px); }
+  75% { transform: translate(0, 483px); }
   100% { transform: translate(0, 0); }
 }
 
@@ -443,7 +451,91 @@ nav {
 
 /*//////// LEVEL FIVE ////////*/
 /* Zones */
+.level-five #start-zone {
+  top: 350px;
+  left: 50px;
+}
+
+.level-five #end-zone {
+  top: 350px;
+  right: 50px;
+}
 
 /* Donuts */
+.level-five .donut {
+  width: 60px;
+  position: absolute;
+  top: 150px;
+  left: 225px;
+}
+
+.level-five .donut:nth-of-type(2) {
+  top: 587px;
+  left: 600px;
+}
+
+.level-five .donut:nth-of-type(3) {
+  top: 177px;
+  left: 795px;
+}
+
+.level-five .donut:nth-of-type(4) {
+  top: 367px;
+  left: 420px;
+}
+
+.level-five .donut:nth-of-type(5) {
+  top: 467px;
+  left: 995px;
+}
 
 /* Obstacles */
+.level-five .obstacle {
+  animation: fall-down 3000ms infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+  height: 6rem;
+  width: 6rem;
+  top: 104px;
+  left: 190px;
+}
+
+.level-five .obstacle:nth-of-type(2) {
+  animation-delay: 1s;
+  left: 290px;
+}
+
+.level-five .obstacle:nth-of-type(3) {
+  left: 390px;
+  animation-delay: 0.25s;
+}
+
+.level-five .obstacle:nth-of-type(4) {
+  left: 490px;
+  animation-delay: 2.5s;
+}
+
+.level-five .obstacle:nth-of-type(5) {
+  left: 590px;
+  animation-delay: 2s;
+}
+
+.level-five .obstacle:nth-of-type(6) {
+  left: 690px;
+  animation-delay: 1.5s;
+}
+
+.level-five .obstacle:nth-of-type(7) {
+  left: 790px;
+  animation-delay: 0.5s;
+}
+
+.level-five .obstacle:nth-of-type(8) {
+  left: 890px;
+  animation-delay: 1s;
+}
+
+.level-five .obstacle:nth-of-type(9) {
+  left: 990px;
+  animation-delay: 1.25s;
+}

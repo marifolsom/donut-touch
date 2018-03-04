@@ -1,25 +1,11 @@
 console.log('app.js linked!');
 
-/////////////// HOW TO PLAY ///////////////
-// Enter the game website
-// Enter username -- form input
-// Click 'Play!' -- button linked to levels.html
-// Select a level -- each level button is linked to its respective level's html file
-// Open selected level file
-// Objects are already moving, items are already placed and ready to go
-// User's cursor enters the start zone and clicks
-// On click, level timer starts counting (up or down?)
-// If cursor enters into obstacle element or out of the game screen, everything turns red -- 'GAME OVER' pop-up
-// If cursor makes it all the way to end zone and clicks, timer stops -- 'Level cleared!' pop-up
-// User has the option to play the level over (if they didn't win or want to get a higher score), return back to the menu, or if they cleared the level, they can advance to the next level -- link to next
-// Once the player has cleared all (five?) levels, they've beat the game! -- 'Congratulations' page
-
 
 // Make a variable for the page body
 let $body = $('body');
 let $main = $('.container');
 // Make a variable to store the user's score
-let $score = $('.nav-level #user-score');
+let $score = $('#user-score');
 // Make a variavle to store the current level being played
 let currentLevel = '';
 // Aake a variable for the user's username
@@ -106,7 +92,7 @@ let getDonutScore = (evt) => {
   let newScore = Number(currentScore) + Number(donutPoints);
   score.textContent = addZeros(newScore);
   // Grey out the donut once it's been collected so the user can know which ones they've already collected, and they can't collect it again
-  element.style.filter = "grayscale(80%)";
+  element.style.filter = "grayscale(90%)";
   // Play sound effect when donut is collected
   let donutSound = new Audio('audio/donut.wav'); // Looked up how to add audio here: https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement
   donutSound.play();
@@ -177,21 +163,21 @@ let setLevelCleared = () => {
       let popUpText = document.querySelector('.pop-up > h2');
       popUpText.textContent = 'GAME CLEARED!';
       // Play sound effect when level cleared
-      let clearedSound = new Audio('audio/level-cleared.wav');
-      clearedSound.play();
+      let gameSound = new Audio('audio/game-cleared.mp3');
+      gameSound.play();
     }, 500);
   }
-  // Remove event listeners from each donut after game over
+  // Remove event listeners from each donut
   let donuts = document.querySelectorAll('.donut');
   for (let i = 0; i < donuts.length; i++) {
     donuts[i].removeEventListener ('mouseenter', getDonutScore);
   }
-  // Remove event listeners from the obstacles once the level has been cleared
+  // Remove event listeners from the obstacles
   let obstacles = document.querySelectorAll('.obstacle');
   for (let i = 0; i < obstacles.length; i++) {
     obstacles[i].removeEventListener ('mouseenter', setGameOver);
   }
-  // Remove event listener from the game screen after level cleared
+  // Remove event listener from the game screen
   let gameScreen = document.querySelector('.game-screen');
   gameScreen.removeEventListener ('mouseleave', setGameOver);
   // Remove event listener from end zone
@@ -221,6 +207,25 @@ let startGame = () => {
   for (let i = 0; i < donuts.length; i++) {
     donuts[i].addEventListener ('mouseenter', getDonutScore);
   }
+  // If pop up exists, turn off event listeners to prevent users from adding to score after game over
+  if (document.getElementById('pop-up-div')) {
+    console.log('pop up!');
+    // Remove event listeners from each donut
+    for (let i = 0; i < donuts.length; i++) {
+      donuts[i].removeEventListener ('mouseenter', getDonutScore);
+    }
+    // Remove event listeners from the obstacles
+    for (let i = 0; i < obstacles.length; i++) {
+      obstacles[i].removeEventListener ('mouseenter', setGameOver);
+    }
+    // Remove event listener from the game screen
+    gameScreen.removeEventListener ('mouseleave', setGameOver);
+    // Remove event listener from end zone
+    endZone.removeEventListener ('click', setLevelCleared);
+    // Remove event listener from start zone
+    let startZone = document.querySelector('#start-zone');
+    startZone.removeEventListener ('click', setLevelCleared);
+  }
 }
 
 
@@ -236,9 +241,9 @@ let makeLevelOne = () => {
   // Add event listener to start zone
   let startZone = document.querySelector('#start-zone');
   startZone.addEventListener ('click', startGame);
-  // Add event listener to nav bar level name
-  let navLevel = document.querySelector('.nav-level');
-  navLevel.addEventListener ('click', makeLevelsPage);
+  // // Add event listener to nav bar level name
+  // let navLevel = document.querySelector('.nav-level');
+  // navLevel.addEventListener ('click', makeLevelsPage);
 }
 
 
@@ -254,9 +259,9 @@ let makeLevelTwo = () => {
   // Add event listener to start zone
   let startZone = document.querySelector('#start-zone');
   startZone.addEventListener ('click', startGame);
-  // Add event listener to nav bar level name
-  let navLevel = document.querySelector('.nav-level');
-  navLevel.addEventListener ('click', makeLevelsPage);
+  // // Add event listener to nav bar level name
+  // let navLevel = document.querySelector('.nav-level');
+  // navLevel.addEventListener ('click', makeLevelsPage);
 }
 
 
@@ -272,9 +277,9 @@ let makeLevelThree = () => {
   // Add event listener to start zone
   let startZone = document.querySelector('#start-zone');
   startZone.addEventListener ('click', startGame);
-  // Add event listener to nav bar level name
-  let navLevel = document.querySelector('.nav-level');
-  navLevel.addEventListener ('click', makeLevelsPage);
+  // // Add event listener to nav bar level name
+  // let navLevel = document.querySelector('.nav-level');
+  // navLevel.addEventListener ('click', makeLevelsPage);
 }
 
 
@@ -290,9 +295,9 @@ let makeLevelFour = () => {
   // Add event listener to start zone
   let startZone = document.querySelector('#start-zone');
   startZone.addEventListener ('click', startGame);
-  // Add event listener to nav bar level name
-  let navLevel = document.querySelector('.nav-level');
-  navLevel.addEventListener ('click', makeLevelsPage);
+  // // Add event listener to nav bar level name
+  // let navLevel = document.querySelector('.nav-level');
+  // navLevel.addEventListener ('click', makeLevelsPage);
 }
 
 
@@ -301,16 +306,16 @@ let makeLevelFive = () => {
   // Set current level variable to 5
   currentLevel = 5;
   // Create all the elements for level 4 + append
-  let $levelFivePage = $('<div class="level-five"> <nav class="information-bar"> <a href="index.html"> <h2 class="title">DONUT TOUCH</h2> </a> <a class="nav-level"> <h2 class="title">LEVEL FIVE</h2> </a> <h2 class="score-content" id="user-score">0000</h2> <h2 class="score-content" id="username"> </h2> </nav><section class="game-screen"> <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <span class="start-end-zone" id="end-zone">END</span> </section> </div>');
+  let $levelFivePage = $('<div class="level-five"> <nav class="information-bar"> <a href="index.html"> <h2 class="title">DONUT TOUCH</h2> </a> <a> <h2 class="title">LEVEL FIVE</h2> </a> <h2 class="score-content" id="user-score">0000</h2> <h2 class="score-content" id="username"></h2> </nav> <section class="game-screen"> <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <span class="start-end-zone" id="end-zone">END</span> </section> </div>');
   $body.html($levelFivePage);
   // Display the username in the nav bar
   displayUsername();
   // Add event listener to start zone
   let startZone = document.querySelector('#start-zone');
   startZone.addEventListener ('click', startGame);
-  // Add event listener to nav bar level name
-  let navLevel = document.querySelector('.nav-level');
-  navLevel.addEventListener ('click', makeLevelsPage);
+  // // Add event listener to nav bar level name
+  // let navLevel = document.querySelector('.nav-level');
+  // navLevel.addEventListener ('click', makeLevelsPage);
 }
 
 
