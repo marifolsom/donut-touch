@@ -33,6 +33,30 @@ let displayUsername = () => {
 }
 
 
+// Make a function that removes all event listeners
+let removeEventListers = () => {
+  // Remove event listeners from each donut
+  let donuts = document.querySelectorAll('.donut');
+  for (let i = 0; i < donuts.length; i++) {
+    donuts[i].removeEventListener ('mouseenter', getDonutScore);
+  }
+  // Remove event listeners from each obstacle
+  let obstacles = document.querySelectorAll('.obstacle');
+  for (let i = 0; i < obstacles.length; i++) {
+    obstacles[i].removeEventListener ('mouseenter', setGameOver);
+  }
+  // Remove event listener from the game screen
+  let gameScreen = document.querySelector('.game-screen');
+  gameScreen.removeEventListener ('mouseleave', setGameOver);
+  // Remove event listener from the end zone
+  let endZone = document.querySelector('#end-zone');
+  endZone.removeEventListener ('click', setLevelCleared);
+  // Remove event listener from the start zone
+  let startZone = document.querySelector('#start-zone');
+  startZone.removeEventListener ('click', setLevelCleared);
+}
+
+
 // Make a function that creates a pop up
 let makePopUp = () => {
   // If pop up already exists, do nothing
@@ -119,24 +143,7 @@ let setGameOver = () => {
     let overSound = new Audio('audio/game-over.wav');
     overSound.play();
   }, 800);
-  // Remove event listeners from each donut
-  let donuts = document.querySelectorAll('.donut');
-  for (let i = 0; i < donuts.length; i++) {
-    donuts[i].removeEventListener ('mouseenter', getDonutScore);
-  }
-  // Remove event listeners from each obstacle
-  let obstacles = document.querySelectorAll('.obstacle');
-  for (let i = 0; i < obstacles.length; i++) {
-    obstacles[i].removeEventListener ('mouseenter', setGameOver);
-  }
-  // Remove event listener from the game screen
-  gameScreen.removeEventListener ('mouseleave', setGameOver);
-  // Remove event listener from the end zone
-  let endZone = document.querySelector('#end-zone');
-  endZone.removeEventListener ('click', setLevelCleared);
-  // Remove event listener from the start zone
-  let startZone = document.querySelector('#start-zone');
-  startZone.removeEventListener ('click', setLevelCleared);
+  removeEventListers();
 }
 
 
@@ -167,29 +174,11 @@ let setLevelCleared = () => {
       gameSound.play();
     }, 500);
   }
-  // Remove event listeners from each donut
-  let donuts = document.querySelectorAll('.donut');
-  for (let i = 0; i < donuts.length; i++) {
-    donuts[i].removeEventListener ('mouseenter', getDonutScore);
-  }
-  // Remove event listeners from the obstacles
-  let obstacles = document.querySelectorAll('.obstacle');
-  for (let i = 0; i < obstacles.length; i++) {
-    obstacles[i].removeEventListener ('mouseenter', setGameOver);
-  }
-  // Remove event listener from the game screen
-  let gameScreen = document.querySelector('.game-screen');
-  gameScreen.removeEventListener ('mouseleave', setGameOver);
-  // Remove event listener from end zone
-  let endZone = document.querySelector('#end-zone');
-  endZone.removeEventListener ('click', setLevelCleared);
-  // Remove event listener from start zone
-  let startZone = document.querySelector('#start-zone');
-  startZone.removeEventListener ('click', setLevelCleared);
+  removeEventListers();
 }
 
 
-// Make a function that adds event listeners to the end zone, game screen, obstacles, and donuts
+// Make a function that adds event listeners to the end zone, game screen, obstacles, and donuts, but if a pop up already exists, will remove the event listeners
 let startGame = () => {
   // Add event listener to end zone
   let endZone = document.querySelector('#end-zone');
@@ -210,21 +199,7 @@ let startGame = () => {
   // If pop up exists, turn off event listeners to prevent users from adding to score after game over
   if (document.getElementById('pop-up-div')) {
     console.log('pop up!');
-    // Remove event listeners from each donut
-    for (let i = 0; i < donuts.length; i++) {
-      donuts[i].removeEventListener ('mouseenter', getDonutScore);
-    }
-    // Remove event listeners from the obstacles
-    for (let i = 0; i < obstacles.length; i++) {
-      obstacles[i].removeEventListener ('mouseenter', setGameOver);
-    }
-    // Remove event listener from the game screen
-    gameScreen.removeEventListener ('mouseleave', setGameOver);
-    // Remove event listener from end zone
-    endZone.removeEventListener ('click', setLevelCleared);
-    // Remove event listener from start zone
-    let startZone = document.querySelector('#start-zone');
-    startZone.removeEventListener ('click', setLevelCleared);
+    removeEventListers();
   }
 }
 
