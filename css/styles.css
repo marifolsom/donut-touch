@@ -344,35 +344,78 @@ nav {
 /*//////// LEVEL THREE ////////*/
 /* Zones */
 .level-three #start-zone {
-  top: 150px;
-  left: 100px;
+  top: 104px;
+  left: 32px;
 }
 
 .level-three #end-zone {
-  top: 550px;
-  right: 100px;
+  top: 602px;
+  right: 32px;
 }
 
 /* Donuts */
 .level-three .donut {
   width: 60px;
   position: absolute;
+  top: 150px;
+  left: 425px;
+}
+
+.level-three .donut:nth-of-type(2) {
+  top: 587px;
+  left: 800px;
+}
+
+.level-three .donut:nth-of-type(3) {
+  top: 477px;
+  left: 795px;
+}
+
+.level-three .donut:nth-of-type(4) {
+  top: 367px;
+  left: 420px;
+}
+
+.level-three .donut:nth-of-type(5) {
+  top: 257px;
+  left: 920px;
+}
+
+/* Obstacles */
+
+
+/*//////// LEVEL FOUR ////////*/
+/* Zones */
+.level-four #start-zone {
+  top: 150px;
+  left: 100px;
+}
+
+.level-four #end-zone {
+  top: 550px;
+  right: 100px;
+}
+
+/* Donuts */
+.level-four .donut {
+  width: 60px;
+  position: absolute;
   top: 600px;
   left: 370px;
 }
 
-.level-three .donut:nth-of-type(2) {
+.level-four .donut:nth-of-type(2) {
   top: 135px;
   left: 840px;
 }
 
-.level-three .donut:nth-of-type(3) {
+.level-four .donut:nth-of-type(3) {
   top: 370px;
   left: 620px;
 }
 
 /* Obstacles */
-.level-three .obstacle {
+.level-four .obstacle {
   animation: up-down2 3000ms infinite ease-in-out;
   height: 23rem;
   width: 4rem;
@@ -380,7 +423,7 @@ nav {
   left: 250px;
 }
 
-.level-three .obstacle:nth-of-type(2) {
+.level-four .obstacle:nth-of-type(2) {
   animation: right-left 4000ms infinite ease-in-out;
   height: 18rem;
   width: 7rem;
@@ -388,7 +431,7 @@ nav {
   left: 320px;
 }
 
-.level-three .obstacle:nth-of-type(3) {
+.level-four .obstacle:nth-of-type(3) {
   animation: left-right 4000ms infinite ease-in-out;
   height: 18rem;
   width: 7rem;
@@ -396,57 +439,13 @@ nav {
   left: 852px;
 }
 
-.level-three .obstacle:nth-of-type(4) {
+.level-four .obstacle:nth-of-type(4) {
   animation: down-up2 3000ms infinite ease-in-out;
   height: 23rem;
   width: 4rem;
   top: 104px;
   left: 970px;
 }
-
-
-/*//////// LEVEL FOUR ////////*/
-/* Zones */
-.level-four #start-zone {
-  top: 104px;
-  left: 32px;
-}
-
-.level-four #end-zone {
-  top: 602px;
-  right: 32px;
-}
-
-/* Donuts */
-.level-four .donut {
-  width: 60px;
-  position: absolute;
-  top: 150px;
-  left: 425px;
-}
-
-.level-four .donut:nth-of-type(2) {
-  top: 587px;
-  left: 800px;
-}
-
-.level-four .donut:nth-of-type(3) {
-  top: 477px;
-  left: 795px;
-}
-
-.level-four .donut:nth-of-type(4) {
-  top: 367px;
-  left: 420px;
-}
-
-.level-four .donut:nth-of-type(5) {
-  top: 257px;
-  left: 920px;
-}
-
-/* Obstacles */
-
 
 
 /*//////// LEVEL FIVE ////////*/
