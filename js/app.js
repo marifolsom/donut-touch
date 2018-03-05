@@ -7,7 +7,7 @@ let $body = $('body');
 let score = '';
 // Make a variavle to store the current level being played
 let currentLevel = '';
-// Aake a variable for the user's username
+// Make a variable to store the user's inputted username
 let username = '';
 // Make variables for the play button
 let playButton = document.querySelector('.play-button');
@@ -96,6 +96,7 @@ let makePopUp = () => {
       case 5:
         current.addEventListener ('click', makeLevelFive);
         next.addEventListener ('click', makeLevelsPage);
+        next.textContent = 'Previous levels';
         break;
     }
     // If play again is clicked, clear the score
@@ -251,24 +252,6 @@ let makeLevelFour = () => {
   let navLevel = document.querySelector('.nav-level');
   navLevel.addEventListener ('click', makeLevelsPage);
 }
-
-
-// // Make a function that creates all the elements for level three
-// let makeLevelThree = () => {
-//   // Set current level variable to 3
-//   currentLevel = 3;
-//   // Create all the elements for level 3 + append
-//   let $levelThreePage = $('<div class="level-three"> <nav class="information-bar"> <a href="index.html"> <h2 class="title">DONUT TOUCH</h2> </a> <a class="nav-level"> <h2 class="title">LEVEL THREE</h2> </a> <h2 class="score-content" id="user-score">0000</h2> <h2 class="score-content" id="username"> </h2> </nav> <section class="game-screen"> <span class="start-end-zone" id="start-zone">START</span> <svg width="1280px" height="590px"> <image xlink:href="img/maze.svg" src="img/maze.svg" alt="maze obstacle" width="1280px" height="590px"> </svg> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <span class="start-end-zone" id="end-zone">END</span> </section> </div>');
-//   $body.html($levelThreePage);
-//   // Display the username in the nav bar
-//   displayUsername();
-//   // Add event listener to start zone
-//   let startZone = document.querySelector('#start-zone');
-//   startZone.addEventListener ('click', startGame);
-//   // Add event listener to nav bar level name
-//   let navLevel = document.querySelector('.nav-level');
-//   navLevel.addEventListener ('click', makeLevelsPage);
-// }
 
 
 // Level 3 backup in case svg doesn't work out
