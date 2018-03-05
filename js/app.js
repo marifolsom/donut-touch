@@ -60,6 +60,10 @@ let removeEventListers = () => {
 // Make a function that creates a pop up
 let makePopUp = () => {
   console.log('level: ' + currentLevel + ', score: ' + score);
+  // If the user gets no donuts, display a score of 0000
+  if (score === '') {
+    score = addZeroes(0);
+  }
   // If pop up already exists, do nothing
   if (document.getElementById('pop-up-div')) {
     console.log('pop up already exists!');
