@@ -17,8 +17,9 @@ let playButton = document.querySelector('.play-button');
 let storeUsername = () => {
   let userInput = document.querySelector('.input');
   username = userInput.value;
+  console.log(username);
   // Remove event listener from the document body once username has been stored
-  document.addEventListener ('keyup', submitOnEnter);
+  document.removeEventListener ('keydown', submitOnEnter);
 }
 
 
@@ -342,7 +343,7 @@ playButton.addEventListener ('click', makeLevelsPage);
 // Make a function that will also store the user's username input and make the levels page with the enter key
 let submitOnEnter = evt => {
   var key = evt.which;
-  if (key == 13) {
+  if (key === 13) {
     storeUsername();
     makeLevelsPage();
   }
