@@ -9,11 +9,6 @@ body {
   padding: 0;
   font-family: 'Press Start 2P', monospace;
   background-color: #000000;
-  cursor: default;
-}
-
-main {
-  min-height: 100vh; /* read about viewport units here: https://css-tricks.com/fun-viewport-units/ */
 }
 
 h1, h2, h3, h4, p, a {
@@ -22,11 +17,19 @@ h1, h2, h3, h4, p, a {
   text-decoration: none;
 }
 
+a {
+  cursor: pointer;
+}
+
 a:hover {
   color: #e5e5e5;
 }
 
 a > h2:hover {
+  color: #e5e5e5;
+}
+
+a > h1:hover {
   color: #e5e5e5;
 }
 

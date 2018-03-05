@@ -17,13 +17,8 @@ let playButton = document.querySelector('.play-button');
 let storeUsername = () => {
   let userInput = document.querySelector('.input');
   username = userInput.value;
-  console.log(username);
-  document.removeEventListener ('keyup', function (evt) {
-      var key = evt.which;
-      if (key == 13) {
-        storeUsername();
-      }
-  });
+  // Remove event listener from the document body once username has been stored
+  document.addEventListener ('keyup', submitOnEnter);
 }
 
 
@@ -35,7 +30,6 @@ playButton.addEventListener('click', storeUsername);
 let displayUsername = () => {
   let navUsername = document.querySelector('#username');
   navUsername.textContent = username;
-  console.log(username);
 }
 
 
@@ -104,12 +98,16 @@ let makePopUp = () => {
         next.addEventListener ('click', makeLevelsPage);
         break;
     }
+    // If play again is clicked, clear the score
+    current.addEventListener ('click', function (evt) {
+      score = addZeroes(0);
+    });
   }
 }
 
 
 // Make a function that adds zeros to the front of the user's score
-let addZeros = (score) => { // After trying to concatenate strings and failing, I found a solution on stack overflow that utilizes slice: https://stackoverflow.com/questions/30490968/adding-zeros-in-front-of-a-string
+let addZeroes = (score) => { // After trying to concatenate strings and failing, I found a solution on stack overflow that utilizes slice: https://stackoverflow.com/questions/30490968/adding-zeros-in-front-of-a-string
   return ("0000" + score).slice(-4);
 }
 
@@ -121,7 +119,7 @@ let getDonutScore = (evt) => {
   let donutPoints = element.getAttribute('points');
   let currentScore = userScore.textContent;
   let newScore = Number(currentScore) + Number(donutPoints);
-  userScore.textContent = addZeros(newScore);
+  userScore.textContent = addZeroes(newScore);
   // Update score variable for the pop up
   score = userScore.textContent;
   // Grey out the donut once it's been collected so the user can know which ones they've already collected, and they can't collect it again
@@ -151,7 +149,7 @@ let setGameOver = () => {
     // Play game over sound effect
     let overSound = new Audio('audio/game-over.wav');
     overSound.play();
-  }, 800);
+  }, 700);
   removeEventListers();
 }
 
@@ -163,7 +161,7 @@ let setLevelCleared = () => {
   endSound.play();
   // if current level is less than 5, say 'Level cleared!'
   if (currentLevel < 5) {
-    // Pop up function with a 1 second delay
+    // Pop up function with a 0.7 second delay
     setTimeout ( () => {
       makePopUp();
       // Change pop up title 'Level cleared!'
@@ -172,10 +170,10 @@ let setLevelCleared = () => {
       // Play sound effect when level cleared
       let clearedSound = new Audio('audio/level-cleared.wav');
       clearedSound.play();
-    }, 500);
+    }, 700);
   // Otherwise, 'Game cleared!'
   } else {
-    // Pop up function with a 1 second delay
+    // Pop up function with a 0.7 second delay
     setTimeout ( () => {
       makePopUp();
       // Change pop up title 'Game cleared!'
@@ -185,7 +183,7 @@ let setLevelCleared = () => {
       let gameSound = new Audio('audio/game-cleared.mp3');
       gameSound.volume = 0.2;
       gameSound.play();
-    }, 500);
+    }, 700);
   }
   removeEventListers();
 }
@@ -355,10 +353,13 @@ playButton.addEventListener ('click', makeLevelsPage);
 
 
 // Make a function that will also store the user's username input and make the levels page with the enter key
-document.addEventListener ('keyup', function (evt) {
+let submitOnEnter = evt => {
   var key = evt.which;
   if (key == 13) {
     storeUsername();
     makeLevelsPage();
   }
-});
+}
+
+// Add event listener to the document body
+document.addEventListener ('keydown', submitOnEnter);
