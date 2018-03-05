@@ -1,4 +1,4 @@
-Link to game: http://marifolsom-donuttouch.bitballoon.com/index.html
+Link to game: http://donuttouch.bitballoon.com/
 
 ### HOW TO PLAY / PROCESS
 - Enter the game website
