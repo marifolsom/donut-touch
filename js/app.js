@@ -149,6 +149,9 @@ let setGameOver = () => {
 
 // Make a function that triggers the 'Level cleared!' or 'Game cleared!' pop up, and removes event listeners from donuts, obstacles, game screen, end zone, and start zone
 let setLevelCleared = () => {
+  // Play sound effect to indicate the start zone has been pressed
+  let endSound = new Audio('audio/menu.wav');
+  endSound.play();
   // if current level is less than 5, say 'Level cleared!'
   if (currentLevel < 5) {
     // Pop up function with a 1 second delay
@@ -181,6 +184,9 @@ let setLevelCleared = () => {
 
 // Make a function that adds event listeners to the end zone, game screen, obstacles, and donuts, but if a pop up already exists, will remove the event listeners
 let startGame = () => {
+  // Play sound effect to indicate the start zone has been pressed
+  let startSound = new Audio('audio/menu.wav');
+  startSound.play();
   // Add event listener to end zone
   let endZone = document.querySelector('#end-zone');
   endZone.addEventListener ('click', setLevelCleared);
