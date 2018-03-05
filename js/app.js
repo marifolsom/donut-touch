@@ -112,8 +112,9 @@ let makePopUp = () => {
 }
 
 
-// Make a function that adds zeros to the front of the user's score
-let addZeroes = (score) => { // After trying to concatenate strings and failing, I found a solution on stack overflow that utilizes slice: https://stackoverflow.com/questions/30490968/adding-zeros-in-front-of-a-string
+// Make a function that adds zeroes to the front of the user's score
+// After trying to concatenate strings and failing, I found a solution on stack overflow that utilizes slice, but I modified it to work with just 4 digits: https://stackoverflow.com/questions/30490968/adding-zeros-in-front-of-a-string
+let addZeroes = (score) => {
   return ("0000" + score).slice(-4);
 }
 

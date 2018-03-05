@@ -1,6 +1,6 @@
 Link to game: http://donuttouch.bitballoon.com/
 
-### HOW TO PLAY / PROCESS
+#### HOW TO PLAY / PROCESS
 - Enter the game website
 - Enter username -- form input
 - Click 'Play!' -- button creates levels page
