@@ -3,9 +3,8 @@ console.log('app.js linked!');
 
 // Make a variable for the page body
 let $body = $('body');
-let $main = $('.container');
 // Make a variable to store the user's score
-let score = document.querySelector('#user-score');
+let score = '';
 // Make a variavle to store the current level being played
 let currentLevel = '';
 // Aake a variable for the user's username
@@ -59,6 +58,7 @@ let removeEventListers = () => {
 
 // Make a function that creates a pop up
 let makePopUp = () => {
+  console.log('level: ' + currentLevel + ', score: ' + score);
   // If pop up already exists, do nothing
   if (document.getElementById('pop-up-div')) {
     console.log('pop up already exists!');
@@ -110,11 +110,13 @@ let addZeros = (score) => { // After trying to concatenate strings and failing, 
 // Make a function that calculates the user's score, turns donut grey, makes donut sound, and removes the event listener from donuts
 let getDonutScore = (evt) => {
   let element = evt.target;
-  let score = document.querySelector('#user-score');
+  let userScore = document.querySelector('#user-score');
   let donutPoints = element.getAttribute('points');
-  let currentScore = score.textContent;
+  let currentScore = userScore.textContent;
   let newScore = Number(currentScore) + Number(donutPoints);
-  score.textContent = addZeros(newScore);
+  userScore.textContent = addZeros(newScore);
+  // Update score variable for the pop up
+  score = userScore.textContent;
   // Grey out the donut once it's been collected so the user can know which ones they've already collected, and they can't collect it again
   element.style.filter = "grayscale(90%)";
   // Play sound effect when donut is collected
@@ -215,7 +217,7 @@ let makeLevelFive = () => {
   // Set current level variable to 5
   currentLevel = 5;
   // Create all the elements for level 4 + append
-  let $levelFivePage = $('<div class="level-five"> <nav class="information-bar"> <a href="index.html"> <h2 class="title">DONUT TOUCH</h2> </a> <a class="nav-level"> <h2 class="title">LEVEL FIVE</h2> </a> <h2 class="score-content" id="user-score">0000</h2> <h2 class="score-content" id="username"></h2> </nav> <section class="game-screen"> <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <span class="start-end-zone" id="end-zone">END</span> </section> </div>');
+  let $levelFivePage = $('<div class="level-five"> <nav class="information-bar"> <a href="index.html"> <h2 class="title">DONUT TOUCH</h2> </a> <a class="nav-level"> <h2 class="title">LEVEL FIVE</h2> </a> <h2 class="score-content" id="user-score">0000</h2> <h2 class="score-content" id="username"></h2> </nav> <section class="game-screen"> <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <span class="start-end-zone" id="end-zone">END</span> </section> </div>');
   $body.html($levelFivePage);
   // Display the username in the nav bar
   displayUsername();
