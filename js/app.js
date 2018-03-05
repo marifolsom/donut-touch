@@ -108,6 +108,10 @@ let makePopUp = () => {
     current.addEventListener ('click', function (evt) {
       score = addZeroes(0);
     });
+    If next level is clicked, clear the score
+    next.addEventListener ('click', function (evt) {
+      score = addZeroes(0);
+    });
   }
 }
 
