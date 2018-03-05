@@ -11,4 +11,4 @@ Link to game: http://donuttouch.bitballoon.com/
 - If cursor enters into obstacle element or out of the game screen, everything turns red -- 'GAME OVER' pop-up
 - If cursor makes it all the way to end zone and clicks -- 'Level cleared!' pop-up
 - User has the option to play the level over (if they didn't win or want to get a higher score), return back to the menu, or if they cleared the level, they can advance to the next level -- link to next
-- Once the player has cleared all (five?) levels, they've beat the game! -- 'Congratulations' pop up
+- Once the player has cleared all five levels, they've beat the game! -- 'Game cleared!' pop up

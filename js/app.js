@@ -211,7 +211,7 @@ let startGame = () => {
   for (let i = 0; i < obstacles.length; i++) {
     obstacles[i].addEventListener ('mouseenter', setGameOver);
   }
-  // Add event listeners to each donut
+  // Add event listener to each donut
   let donuts = document.querySelectorAll('.donut');
   for (let i = 0; i < donuts.length; i++) {
     donuts[i].addEventListener ('mouseenter', getDonutScore);
