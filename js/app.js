@@ -463,7 +463,8 @@ let makeLevelsPage = () => {
         <a class="button four">LEVEL FOUR</a>
         <a class="button five">LEVEL FIVE</a>
       </div>
-    </main>`);
+    </main>
+  `);
   $body.html($levelsPage);
   // Add event listener to level one button
   let oneButton = document.querySelector('.one');
