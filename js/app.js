@@ -67,7 +67,15 @@ let makePopUp = () => {
   // Otherwise make a pop up!
   } else {
     // Create and append pop up elements
-    let $popUp = $('<section class="pop-up" id="pop-up-div"><h2></h2><a class="button current-level">Play again</a><a class="button next-level">Next level</a><a class="button" href="index.html">Return to menu</a><p>Score: ' + score + '</p> </section>');
+    let $popUp = $(`
+      <section class="pop-up" id="pop-up-div">
+        <h2></h2>
+        <a class="button current-level">Play again</a>
+        <a class="button next-level">Next level</a>
+        <a class="button" href="index.html">Return to menu</a>
+        <p>Score: ${score}</p>
+      </section>
+    `);
     $body.append($popUp);
     // Add links to current and next level pop up buttons depending on what level is currently being played by the user
     let current = document.querySelector('.current-level');
@@ -229,7 +237,37 @@ let makeLevelFive = () => {
   // Set current level variable to 5
   currentLevel = 5;
   // Create all the elements for level 5 and append to body
-  let $levelFivePage = $('<div class="level-five"> <nav class="information-bar"> <a href="index.html"> <h2 class="title">DONUT TOUCH</h2> </a> <a class="nav-level"> <h2 class="title">LEVEL FIVE</h2> </a> <h2 class="score-content" id="user-score">0000</h2> <h2 class="score-content" id="username"></h2> </nav> <section class="game-screen"> <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <span class="start-end-zone" id="end-zone">END</span> </section> </div>');
+  let $levelFivePage = $(`
+    <div class="level-five">
+      <nav class="information-bar">
+        <a href="index.html">
+          <h2 class="title">DONUT TOUCH</h2>
+        </a>
+        <a class="nav-level">
+          <h2 class="title">LEVEL FIVE</h2>
+        </a>
+        <h2 class="score-content" id="user-score">0000</h2>
+        <h2 class="score-content" id="username"></h2>
+      </nav>
+      <section class="game-screen">
+        <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <span class="start-end-zone" id="end-zone">END</span>
+      </section>
+    </div>
+  `);
   $body.html($levelFivePage);
   // Display the username in the nav bar
   displayUsername();
@@ -247,7 +285,30 @@ let makeLevelFour = () => {
   // Set current level variable to 4
   currentLevel = 4;
   // Create all the elements for level 4 and append to body
-  let $levelFourPage = $('<div class="level-four"> <nav class="information-bar"> <a href="index.html"> <h2 class="title">DONUT TOUCH</h2> </a> <a class="nav-level"> <h2 class="title">LEVEL FOUR</h2> </a> <h2 class="score-content" id="user-score">0000</h2> <h2 class="score-content" id="username"> </h2> </nav> <section class="game-screen"> <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span><img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <span class="start-end-zone" id="end-zone">END</span> </section> </div>');
+  let $levelFourPage = $(`
+    <div class="level-four">
+      <nav class="information-bar">
+        <a href="index.html">
+          <h2 class="title">DONUT TOUCH</h2>
+        </a>
+        <a class="nav-level">
+          <h2 class="title">LEVEL FOUR</h2>
+        </a>
+        <h2 class="score-content" id="user-score">0000</h2>
+        <h2 class="score-content" id="username"></h2>
+      </nav>
+      <section class="game-screen">
+        <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <span class="start-end-zone" id="end-zone">END</span>
+      </section>
+    </div>
+  `);
   $body.html($levelFourPage);
   // Display the username in the nav bar
   displayUsername();
@@ -265,7 +326,32 @@ let makeLevelThree = () => {
   // Set current level variable to 3
   currentLevel = 3;
   // Create all the elements for level 3 and append to body
-  let $levelThreePage = $('<div class="level-three"> <nav class="information-bar"> <a href="index.html"> <h2 class="title">DONUT TOUCH</h2> </a> <a class="nav-level"> <h2 class="title">LEVEL THREE</h2> </a> <h2 class="score-content" id="user-score">0000</h2> <h2 class="score-content" id="username"></h2> </nav> <section class="game-screen"> <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <span class="obstacle"></span> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <span class="start-end-zone" id="end-zone">END</span> </section> </div>');
+  let $levelThreePage = $(`
+    <div class="level-three">
+      <nav class="information-bar">
+        <a href="index.html">
+          <h2 class="title">DONUT TOUCH</h2>
+        </a>
+        <a class="nav-level">
+          <h2 class="title">LEVEL THREE</h2>
+        </a>
+        <h2 class="score-content" id="user-score">0000</h2>
+        <h2 class="score-content" id="username"></h2>
+      </nav>
+      <section class="game-screen">
+        <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <span class="start-end-zone" id="end-zone">END</span>
+      </section>
+    </div>
+  `);
   $body.html($levelThreePage);
   // Display the username in the nav bar
   displayUsername();
@@ -283,7 +369,30 @@ let makeLevelTwo = () => {
   // Set current level variable to 2
   currentLevel = 2;
   // Create all the elements for level 2 and append to body
-  let $levelTwoPage = $('<div class="level-two"> <nav class="information-bar"> <a href="index.html"> <h2 class="title">DONUT TOUCH</h2> </a> <a class="nav-level"> <h2 class="title">LEVEL TWO</h2> </a> <h2 class="score-content" id="user-score">0000</h2> <h2 class="score-content" id="username"> </h2> </nav> <section class="game-screen"> <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <span class="start-end-zone" id="end-zone">END</span> </section> </div>');
+  let $levelTwoPage = $(`
+    <div class="level-two">
+      <nav class="information-bar">
+        <a href="index.html">
+          <h2 class="title">DONUT TOUCH</h2>
+        </a>
+        <a class="nav-level">
+          <h2 class="title">LEVEL TWO</h2>
+        </a>
+        <h2 class="score-content" id="user-score">0000</h2>
+        <h2 class="score-content" id="username"></h2>
+      </nav>
+      <section class="game-screen">
+        <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <span class="start-end-zone" id="end-zone">END</span>
+      </section>
+    </div>
+  `);
   $body.html($levelTwoPage);
   // Display the username in the nav bar
   displayUsername();
@@ -301,7 +410,31 @@ let makeLevelOne = () => {
   // Set current level variable to 1
   currentLevel = 1;
   // Create all the elements for level 1 and append to body
-  let $levelOnePage = $('<div class="level-one"> <nav class="information-bar"> <a href="index.html"> <h2 class="title">DONUT TOUCH</h2> </a> <a class="nav-level"> <h2 class="title">LEVEL ONE</h2> </a> <h2 class="score-content" id="user-score">0000</h2> <h2 class="score-content" id="username"> </h2> </nav><section class="game-screen"> <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <span class="obstacle"> </span> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <img class="donut" src="img/donut.png" alt="donut icon" points="10"> <span class="start-end-zone" id="end-zone">END</span> </section> </div>');
+  let $levelOnePage = $(`
+    <div class="level-one">
+      <nav class="information-bar">
+        <a href="index.html">
+          <h2 class="title">DONUT TOUCH</h2>
+        </a>
+        <a class="nav-level">
+          <h2 class="title">LEVEL ONE</h2>
+        </a>
+        <h2 class="score-content" id="user-score">0000</h2>
+        <h2 class="score-content" id="username"></h2>
+      </nav>
+      <section class="game-screen">
+        <span class="start-end-zone" id="start-zone">START</span> <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <span class="obstacle"></span>
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <img class="donut" src="img/donut.png" alt="donut icon" points="10">
+        <span class="start-end-zone" id="end-zone">END</span>
+      </section>
+    </div>
+  `);
   $body.html($levelOnePage);
   // Display the username in the nav bar
   displayUsername();
@@ -317,7 +450,20 @@ let makeLevelOne = () => {
 // Make a function that creates the elements for the levels page and adds event listeners to each level button
 let makeLevelsPage = () => {
   // Create all the elements for the levels page and append to body
-  $levelsPage = $('<main class="container"> <a href="index.html"> <h1>DONUT TOUCH</h1> </a> <div class="levels"> <p>Select a level:</p> <a class="button one">LEVEL ONE</a> <a class="button two">LEVEL TWO</a> <a class="button three">LEVEL THREE</a> <a class="button four">LEVEL FOUR</a> <a class="button five">LEVEL FIVE</a> </div> </main>');
+  $levelsPage = $(`
+    <main class="container">
+      <a href="index.html">
+        <h1>DONUT TOUCH</h1>
+      </a>
+      <div class="levels">
+        <p>Select a level:</p>
+        <a class="button one">LEVEL ONE</a>
+        <a class="button two">LEVEL TWO</a>
+        <a class="button three">LEVEL THREE</a>
+        <a class="button four">LEVEL FOUR</a>
+        <a class="button five">LEVEL FIVE</a>
+      </div>
+    </main>`);
   $body.html($levelsPage);
   // Add event listener to level one button
   let oneButton = document.querySelector('.one');

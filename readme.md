@@ -1,3 +1,5 @@
+## Donut Touch link: http://donuttouch.bitballoon.com/
+
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project #1: The Game
 
 ![](https://media.giphy.com/media/TLKKExVa9v8bu/giphy.gif)
@@ -40,7 +42,7 @@ Your app must:
 
 ---
 
-#### Presentation Requirements 
+#### Presentation Requirements
 
 - **Create and get approval for a wireframe for your game page**
 - Comment your code appropriately
@@ -66,7 +68,7 @@ If you're creating a two (or more)-player game, you MUST:
 **Bonus**
 
 - If this is a one-player game, design logic for winning & visually display which player won (why? not all games have one winner)
-- Include at least one animation using HTML Canvas or SVG 
+- Include at least one animation using HTML Canvas or SVG
 - Include a "Tutorial Section" of this landing page (why: instructions help think through the "UX" of your project)
 
 ---
