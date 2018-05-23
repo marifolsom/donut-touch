@@ -1,6 +1,4 @@
 # Donut Touch
-
-## Description
 I was inspired by Operation (the board game!), where you have to accomplish tasks with a steady hand while you try not to touch certain things.  But instead of a board game, I wanted to make an online game utilizing the user's cursor, as they try to make it from the start to end zone without hitting any of the obstacles.  
 
 ## Priority Matrix
